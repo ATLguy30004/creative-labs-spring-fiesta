@@ -1,0 +1,89 @@
+{
+  "directions": [
+    {
+      "id": 1,
+      "slug": "fiesta-viva",
+      "name": "Fiesta Viva",
+      "description": "Chunky, expressive, dense — like a Mexican celebration poster. Big typographic hero with 'Spring Fiesta' in massive stacked Baloo 2 text. Colorful event-detail tiles on warm cream with coral accents. Rounded pill shapes throughout. High-energy confetti texture.",
+      "rationale": "This is a family party and it should look like one. Baloo 2 is already in the Creative Labs brand stack — using it as the hero display font creates instant brand recognition while the coral accent brings the fiesta heat.",
+      "palette": {
+        "primary": "#71AF47",
+        "secondary": "#FFD024",
+        "accent": "#FF5C35",
+        "bg": "#FFF8F0",
+        "surface": "#FFF0DC",
+        "text": "#1A1A1A",
+        "muted": "#7A6A5A"
+      },
+      "fonts": {
+        "heading": { "family": "Baloo 2", "package": "baloo-2", "fallback": "Georgia, serif" },
+        "body": { "family": "Nunito", "package": "nunito", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": {
+        "density": "dense",
+        "typography": "extreme-size-contrast + display-weight",
+        "hero": "typographic",
+        "visual_metaphor": "editorial-poster",
+        "shape": "rounded-pills",
+        "whitespace": "tight"
+      }
+    },
+    {
+      "id": 2,
+      "slug": "spring-garden-party",
+      "name": "Spring Garden Party",
+      "description": "Airy and organic — like a garden party invitation. Generous whitespace, soft mint background, organic CSS wave dividers. Fraunces warm serif headings with clean DM Sans details. Split hero layout with illustrated spring elements. Every section breathes.",
+      "rationale": "Creative Labs is an early childhood education center — approachable warmth is core to their identity. This direction feels like an invitation you'd be excited to open.",
+      "palette": {
+        "primary": "#71AF47",
+        "secondary": "#FFD024",
+        "accent": "#FF9E4F",
+        "bg": "#F4FFF0",
+        "surface": "#E8FAE0",
+        "text": "#1E3A1E",
+        "muted": "#5C7A5C"
+      },
+      "fonts": {
+        "heading": { "family": "Fraunces", "package": "fraunces", "fallback": "Georgia, serif" },
+        "body": { "family": "DM Sans", "package": "dm-sans", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": {
+        "density": "spacious",
+        "typography": "warm-organic-serif + humanist-sans",
+        "hero": "split-screen",
+        "visual_metaphor": "organic",
+        "shape": "rounded-curves",
+        "whitespace": "generous"
+      }
+    },
+    {
+      "id": 3,
+      "slug": "noche-de-fiesta",
+      "name": "Noche de Fiesta",
+      "description": "Bold, high-contrast, electric — a night event deserves night energy. Near-black background makes yellow and green pop. Raleway black weight headings, sharp festival-poster grid layout. Hot pink accent for the '2 Free Tickets' callout. Glowing box shadows.",
+      "rationale": "This is an evening event (7–11 PM). Direction 3 leans into that — it looks like a Friday night out, not a school newsletter. The yellow and green on black creates unmistakable visual energy.",
+      "palette": {
+        "primary": "#FFD024",
+        "secondary": "#71AF47",
+        "accent": "#FF2D6B",
+        "bg": "#0E0E0E",
+        "surface": "#1A1A1A",
+        "text": "#FFFFFF",
+        "muted": "#999999"
+      },
+      "fonts": {
+        "heading": { "family": "Raleway", "package": "raleway", "fallback": "system-ui, sans-serif" },
+        "body": { "family": "Outfit", "package": "outfit", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": {
+        "density": "balanced",
+        "typography": "geometric-sans-black + clean-sans",
+        "hero": "typographic-dark",
+        "visual_metaphor": "festival-poster",
+        "shape": "sharp-edges",
+        "whitespace": "balanced"
+      }
+    }
+  ],
+  "total": 3
+}

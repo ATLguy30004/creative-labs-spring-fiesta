@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+const directions = [
+  {
+    n: 1,
+    name: 'Fiesta Viva',
+    slug: 'direction-1-fiesta-viva',
+    description: 'Dense + celebratory — Mexican fiesta poster energy. Massive Baloo 2 hero, coral accents, confetti texture, pill shapes throughout.',
+    palette: ['#71AF47', '#FFD024', '#FF5C35', '#FFF8F0'],
+  },
+  {
+    n: 2,
+    name: 'Spring Garden Party',
+    slug: 'direction-2-spring-garden-party',
+    description: 'Airy + organic — like a premium garden party invitation. Fraunces serif headings, botanical SVG elements, wave dividers, generous whitespace.',
+    palette: ['#71AF47', '#FFD024', '#FF9E4F', '#F4FFF0'],
+  },
+  {
+    n: 3,
+    name: 'Noche de Fiesta',
+    slug: 'direction-3-noche-de-fiesta',
+    description: 'Electric + bold — night event energy. Near-black bg, yellow + green glow, Raleway 900 festival-poster typography, hot pink VIP accent.',
+    palette: ['#FFD024', '#71AF47', '#FF2D6B', '#0E0E0E'],
+  },
+];
+---
+<Layout title="Your Homepage Concepts — Creative Labs Spring Fiesta">
+  <main style="max-width: 680px; margin: 0 auto; padding: 4rem 1.5rem; font-family: var(--font-body, system-ui);">
+    <p style="font-size: 0.75rem; font-weight: 700; color: #71AF47; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Creative Labs Spring Fiesta</p>
+    <h1 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 0.5rem; color: #1a1a1a;">Your 3 Homepage Concepts</h1>
+    <p style="color: #666; margin-bottom: 3rem; font-size: 0.95rem; line-height: 1.6;">Click each direction to preview it. Scroll through each one fully before deciding. Notice how each one makes you feel.</p>
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
+      {directions.map(d => (
+        <a href={`/${d.slug}`} style="display: block; padding: 1.5rem; border: 1px solid #e5e7eb; border-radius: 12px; text-decoration: none; color: inherit; transition: border-color 0.15s, box-shadow 0.15s;" onmouseover="this.style.borderColor='#71AF47';this.style.boxShadow='0 4px 20px rgba(113,175,71,0.12)'" onmouseout="this.style.borderColor='#e5e7eb';this.style.boxShadow='none'">
+          <div style="font-size: 0.7rem; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.3rem;">Direction {d.n}</div>
+          <div style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem;">{d.name}</div>
+          <div style="color: #555; font-size: 0.875rem; line-height: 1.55; margin-bottom: 0.75rem;">{d.description}</div>
+          <div style="display: flex; gap: 6px;">
+            {d.palette.map(hex => (
+              <div style={`width: 20px; height: 20px; border-radius: 4px; background: ${hex}; border: 1px solid rgba(0,0,0,0.08);`} title={hex}></div>
+            ))}
+          </div>
+        </a>
+      ))}
+    </div>
+  </main>
+</Layout>

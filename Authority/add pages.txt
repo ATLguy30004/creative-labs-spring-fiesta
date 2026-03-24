@@ -1,0 +1,53 @@
+Most of the plumbing is done. You have a design system, a deployment pipeline, and a safe editing workflow. Now we get to the fun part. This lesson is about speed. You'll see how fast page building gets when the foundation is solid.
+
+
+
+What's Left to Build
+
+Your site still needs an about page, services pages, and a contact form. We'll tackle the about page here to show the workflow, then you'll use the same process for everything else.
+
+
+
+Start With a Branch
+
+Before you touch anything, create a new branch. Call it something like "extra-pages." If you skipped Lesson 7, go back and read it. This is non-negotiable for anything that changes your live site.
+
+
+
+The Build Process
+
+Start a new Claude Code chat and switch to plan mode. Load the frontend design skill:
+
+/frontend-design
+
+Then give Claude everything it needs in one prompt. Tag a photo of yourself, paste some copy from your original site, and tell it what you want:
+
+I want to start building an about page for the site. The original site does not have an about page, but I want you to use this photo [tag the photo file]. It doesn't need to be very long. Here's some copy from the original site: [paste copy]. Interview me and based on my answers, the copy, and the photo, make a simple about page that matches the rest of the design.
+
+Claude will interview you. It'll ask about your location, your background, your story, what sections make sense. Answer honestly. The more real detail you give, the less generic the page feels.
+
+Once you approve the plan, Claude builds. The result is typically a hero section, a bio, credentials or experience highlights, and a call-to-action. All using the design system components you already have.
+
+
+
+Why This Works So Fast
+
+One prompt, one image, and some pasted copy produces a complete about page in minutes. That speed isn't magic. It's the design system doing its job.
+
+Claude doesn't have to guess your fonts, colors, spacing, or component styles. It already knows all of that from the design rules you established earlier. Every new page it builds automatically looks like it belongs on your site.
+
+The CTA component at the bottom of the about page is the same one from your homepage. It's a shared component. Change the CTA text or button color once and it updates everywhere. That's the payoff of building a proper design system instead of copy-pasting styles.
+
+Pro tip: If you're using the VS Code extension (not the terminal), you don't need to reload the frontend design skill after approving the plan. The context is preserved. One less step.
+
+
+
+After Building
+
+Commit your changes to create a checkpoint, but don't push yet. You're going to keep building more pages on this same branch. Think of it as a batch. About page, services pages, contact form. Build them all, then push and preview the whole package at once.
+
+Honest aside: If Claude makes a mess of the about page, this is exactly why you're on a branch. Discard everything, start a new chat, try a different prompt. Your live site doesn't know and doesn't care.
+
+
+
+You've seen the workflow. Branch, prompt, build, commit. Next up, we apply this same process to the rest of your pages and start connecting the pieces that make a site feel complete.

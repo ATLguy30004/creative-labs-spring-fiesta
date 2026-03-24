@@ -1,0 +1,281 @@
+---
+/**
+ * FoodActivities — Food from Elote King, Mechanical Bull, Popsicles.
+ * Fun, appetizing, asymmetric layout with staggered cards.
+ */
+---
+
+<section class="food-section" id="food">
+  <div class="food-inner">
+    <h2 class="section-eyebrow scroll-reveal" data-reveal="fade">What's Happening</h2>
+    <h3 class="section-heading scroll-reveal" data-reveal="slide-up" style="--reveal-delay: 100ms;">Food, Fun & Fiesta Vibes</h3>
+
+    <div class="food-grid">
+      <!-- Card 1: Food — offset for asymmetry -->
+      <div class="food-card food-card--food scroll-reveal" data-reveal="slide-up" style="--reveal-delay: 150ms;">
+        <div class="food-card-accent" aria-hidden="true"></div>
+        <div class="food-card-emoji" aria-hidden="true">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <ellipse cx="32" cy="44" rx="24" ry="8" fill="var(--color-brand-surface)" opacity="0.6"/>
+            <rect x="14" y="20" width="36" height="20" rx="6" fill="var(--color-brand-secondary)"/>
+            <rect x="12" y="16" width="40" height="8" rx="4" fill="#D4A76A"/>
+            <rect x="12" y="36" width="40" height="8" rx="4" fill="#D4A76A"/>
+            <rect x="18" y="24" width="8" height="4" rx="2" fill="var(--color-brand-primary)"/>
+            <rect x="30" y="24" width="8" height="4" rx="2" fill="var(--color-brand-accent)"/>
+            <rect x="22" y="30" width="12" height="3" rx="1.5" fill="var(--color-brand-primary)"/>
+          </svg>
+        </div>
+        <h4 class="food-card-title">Elote King Eats</h4>
+        <p class="food-card-desc">
+          Delicious street food available for purchase from Elote King Atlanta.
+          From elotes to loaded nachos — fuel your fiesta right!
+        </p>
+        <span class="food-card-tag">For Purchase</span>
+      </div>
+
+      <!-- Card 2: Mechanical Bull — pushed down for stagger -->
+      <div class="food-card food-card--bull food-card--offset scroll-reveal" data-reveal="scale" style="--reveal-delay: 300ms;">
+        <div class="food-card-accent food-card-accent--green" aria-hidden="true"></div>
+        <div class="food-card-emoji" aria-hidden="true">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <ellipse cx="32" cy="50" rx="20" ry="6" fill="var(--color-brand-surface)" opacity="0.6"/>
+            <ellipse cx="32" cy="36" rx="20" ry="14" fill="var(--color-brand-primary)"/>
+            <circle cx="32" cy="22" r="11" fill="var(--color-brand-primary)"/>
+            <path d="M21 16 L16 6" stroke="var(--color-brand-text)" stroke-width="3" stroke-linecap="round"/>
+            <path d="M43 16 L48 6" stroke="var(--color-brand-text)" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="27" cy="20" r="2.5" fill="white"/>
+            <circle cx="37" cy="20" r="2.5" fill="white"/>
+            <ellipse cx="32" cy="27" rx="4" ry="2" fill="#5A9A34"/>
+          </svg>
+        </div>
+        <h4 class="food-card-title">Mechanical Bull</h4>
+        <p class="food-card-desc">
+          Think you can hang on? The mechanical bull is the fiesta's
+          star attraction — fun for kids and brave parents alike!
+        </p>
+        <span class="food-card-tag food-card-tag--green">Free w/ Ticket</span>
+      </div>
+
+      <!-- Card 3: Popsicles — back to base, full width on mobile -->
+      <div class="food-card food-card--popsicle scroll-reveal" data-reveal="slide-up" style="--reveal-delay: 450ms;">
+        <div class="food-card-accent food-card-accent--yellow" aria-hidden="true"></div>
+        <div class="food-card-emoji" aria-hidden="true">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <rect x="16" y="8" width="14" height="30" rx="7" fill="var(--color-brand-accent)"/>
+            <rect x="18" y="10" width="4" height="12" rx="2" fill="rgba(255,255,255,0.35)"/>
+            <rect x="21" y="38" width="6" height="18" rx="2" fill="#D4A76A"/>
+            <rect x="34" y="12" width="14" height="30" rx="7" fill="var(--color-brand-primary)"/>
+            <rect x="36" y="14" width="4" height="12" rx="2" fill="rgba(255,255,255,0.35)"/>
+            <rect x="39" y="42" width="6" height="16" rx="2" fill="#D4A76A"/>
+          </svg>
+        </div>
+        <h4 class="food-card-title">Frozen Popsicles</h4>
+        <p class="food-card-desc">
+          Sweet, refreshing, and the perfect spring treat.
+          Redeem your free ticket for a popsicle at the Elote King booth!
+        </p>
+        <span class="food-card-tag food-card-tag--coral">Free w/ Ticket</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confetti diamonds as section decoration -->
+  <span class="food-confetti food-confetti--1" aria-hidden="true"></span>
+  <span class="food-confetti food-confetti--2" aria-hidden="true"></span>
+  <span class="food-confetti food-confetti--3" aria-hidden="true"></span>
+</section>
+
+<style>
+  @reference "../../styles/global.css";
+
+  .food-section {
+    position: relative;
+    padding: 5rem 1.5rem 6rem;
+    background: var(--color-brand-bg);
+    overflow: hidden;
+  }
+
+  .food-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section-eyebrow {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-brand-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-heading {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-brand-text);
+    letter-spacing: -0.03em;
+    margin: 0 0 3rem;
+  }
+
+  .food-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    text-align: left;
+  }
+
+  .food-card {
+    position: relative;
+    background: white;
+    border-radius: 24px;
+    padding: 2rem 1.5rem 2.5rem;
+    border: 2px solid var(--color-brand-surface);
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+  }
+
+  .food-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Asymmetric: offset the second card downward */
+  .food-card--offset {
+    margin-top: 2.5rem;
+  }
+
+  /* Third card spans full width */
+  .food-card--popsicle {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 0 1.5rem;
+    align-items: center;
+    padding: 1.5rem 2rem;
+  }
+  .food-card--popsicle .food-card-emoji {
+    grid-row: 1 / 3;
+    margin-bottom: 0;
+  }
+  .food-card--popsicle .food-card-title {
+    grid-column: 2;
+    margin-bottom: 0;
+  }
+  .food-card--popsicle .food-card-desc {
+    grid-column: 2;
+  }
+  .food-card--popsicle .food-card-tag {
+    grid-row: 1 / 3;
+    grid-column: 3;
+    align-self: center;
+  }
+
+  /* Accent bar at top */
+  .food-card-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--color-brand-accent);
+    border-radius: 24px 24px 0 0;
+  }
+  .food-card-accent--green { background: var(--color-brand-primary); }
+  .food-card-accent--yellow { background: var(--color-brand-secondary); }
+
+  .food-card-emoji {
+    margin-bottom: 1rem;
+  }
+
+  .food-card-title {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.35rem;
+    color: var(--color-brand-text);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .food-card-desc {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-brand-muted);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .food-card-tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(255, 92, 53, 0.1);
+    color: var(--color-brand-accent);
+    padding: 0.3rem 0.9rem;
+    border-radius: 100px;
+    margin-top: 1rem;
+  }
+  .food-card-tag--green {
+    background: rgba(113, 175, 71, 0.1);
+    color: var(--color-brand-primary);
+  }
+  .food-card-tag--coral {
+    background: rgba(255, 92, 53, 0.1);
+    color: var(--color-brand-accent);
+  }
+
+  /* Decorative confetti diamonds */
+  .food-confetti {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    transform: rotate(45deg);
+    border-radius: 3px;
+    opacity: 0.15;
+    pointer-events: none;
+  }
+  .food-confetti--1 { background: var(--color-brand-accent); top: 10%; right: 5%; }
+  .food-confetti--2 { background: var(--color-brand-secondary); bottom: 15%; left: 3%; }
+  .food-confetti--3 { background: var(--color-brand-primary); top: 50%; right: 8%; }
+
+  /* Scroll-reveal */
+  .scroll-reveal {
+    opacity: 0;
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .scroll-reveal[data-reveal="slide-up"] { transform: translateY(40px); }
+  .scroll-reveal[data-reveal="fade"] { transform: translateY(0); }
+  .scroll-reveal[data-reveal="scale"] { transform: scale(0.9); }
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  @media (max-width: 700px) {
+    .food-grid {
+      grid-template-columns: 1fr;
+    }
+    .food-card--offset {
+      margin-top: 0;
+    }
+    .food-card--popsicle {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      text-align: center;
+    }
+    .food-card--popsicle .food-card-emoji,
+    .food-card--popsicle .food-card-title,
+    .food-card--popsicle .food-card-desc,
+    .food-card--popsicle .food-card-tag {
+      grid-column: 1;
+      grid-row: auto;
+    }
+  }
+</style>

@@ -1,0 +1,225 @@
+---
+/**
+ * Hero — Massive stacked Baloo 2 typographic hero.
+ * "Spring Fiesta" in enormous text. Date + time prominent.
+ * Confetti particles, diagonal bottom edge, high energy.
+ */
+---
+
+<section class="hero" aria-label="Spring Fiesta hero">
+  <!-- Floating confetti decorations -->
+  <div class="hero-confetti" aria-hidden="true">
+    <span class="confetti confetti--1"></span>
+    <span class="confetti confetti--2"></span>
+    <span class="confetti confetti--3"></span>
+    <span class="confetti confetti--4"></span>
+    <span class="confetti confetti--5"></span>
+    <span class="confetti confetti--6"></span>
+    <span class="confetti confetti--7"></span>
+    <span class="confetti confetti--8"></span>
+    <span class="confetti confetti--9"></span>
+    <span class="confetti confetti--10"></span>
+    <span class="confetti confetti--11"></span>
+    <span class="confetti confetti--12"></span>
+  </div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow hero-animate" data-delay="0">Creative Labs Center Presents</p>
+    <h1 class="hero-title">
+      <span class="hero-title-line hero-animate" data-delay="100">Spring</span>
+      <span class="hero-title-line hero-title-line--accent hero-animate" data-delay="250">Fiesta</span>
+    </h1>
+    <div class="hero-details hero-animate" data-delay="450">
+      <div class="hero-detail-pill">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Saturday, March 28
+      </div>
+      <div class="hero-detail-pill">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        7:00 PM — 11:00 PM
+      </div>
+    </div>
+    <p class="hero-tagline hero-animate" data-delay="600">A night of food, fun, and fiesta for the whole family!</p>
+  </div>
+
+  <!-- Diagonal bottom edge -->
+  <div class="hero-edge" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" fill="var(--color-brand-bg)">
+      <path d="M0,40 Q360,80 720,50 Q1080,20 1440,60 L1440,80 L0,80 Z"/>
+    </svg>
+  </div>
+</section>
+
+<style>
+  @reference "../../styles/global.css";
+
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 7rem 1.5rem 6rem;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(113, 175, 71, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(255, 208, 36, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(255, 92, 53, 0.08) 0%, transparent 60%),
+      var(--color-brand-surface);
+    /* Subtle noise texture via SVG */
+    background-image:
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"),
+      radial-gradient(ellipse at 20% 20%, rgba(113, 175, 71, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(255, 208, 36, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(255, 92, 53, 0.08) 0%, transparent 60%);
+    background-color: var(--color-brand-surface);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-brand-primary);
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.88;
+    margin: 0;
+    letter-spacing: -0.04em;
+  }
+
+  .hero-title-line {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: clamp(5rem, 18vw, 12rem);
+    color: var(--color-brand-text);
+    display: block;
+  }
+
+  .hero-title-line--accent {
+    color: var(--color-brand-accent);
+    text-shadow: 4px 4px 0 rgba(255, 208, 36, 0.4);
+  }
+
+  .hero-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 2.5rem;
+  }
+
+  .hero-detail-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    color: var(--color-brand-text);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.65rem 1.4rem;
+    border-radius: 100px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border: 2px solid var(--color-brand-secondary);
+  }
+
+  .hero-tagline {
+    font-family: var(--font-body);
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+    color: var(--color-brand-muted);
+    margin-top: 2rem;
+    font-weight: 600;
+  }
+
+  /* Diagonal bottom */
+  .hero-edge {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    line-height: 0;
+  }
+  .hero-edge svg {
+    width: 100%;
+    height: 80px;
+  }
+
+  /* Confetti particles */
+  .hero-confetti {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .confetti {
+    position: absolute;
+    border-radius: 3px;
+    animation: confetti-float linear infinite;
+  }
+
+  .confetti--1 { width: 12px; height: 12px; background: var(--color-brand-accent); top: 10%; left: 8%; animation-duration: 6s; border-radius: 50%; }
+  .confetti--2 { width: 16px; height: 8px; background: var(--color-brand-secondary); top: 20%; right: 12%; animation-duration: 5s; animation-delay: 0.5s; transform: rotate(45deg); }
+  .confetti--3 { width: 10px; height: 10px; background: var(--color-brand-primary); top: 60%; left: 5%; animation-duration: 7s; animation-delay: 1s; border-radius: 2px; }
+  .confetti--4 { width: 14px; height: 6px; background: var(--color-brand-secondary); top: 15%; left: 70%; animation-duration: 5.5s; animation-delay: 0.3s; }
+  .confetti--5 { width: 8px; height: 8px; background: var(--color-brand-accent); top: 45%; right: 8%; animation-duration: 6.5s; animation-delay: 2s; border-radius: 50%; }
+  .confetti--6 { width: 18px; height: 6px; background: var(--color-brand-primary); top: 75%; right: 20%; animation-duration: 4.5s; animation-delay: 1.5s; transform: rotate(-30deg); }
+  .confetti--7 { width: 10px; height: 10px; background: var(--color-brand-secondary); top: 35%; left: 20%; animation-duration: 8s; border-radius: 50%; }
+  .confetti--8 { width: 6px; height: 16px; background: var(--color-brand-accent); top: 50%; left: 85%; animation-duration: 5s; animation-delay: 3s; }
+  .confetti--9 { width: 12px; height: 4px; background: var(--color-brand-primary); top: 80%; left: 40%; animation-duration: 6s; animation-delay: 0.8s; transform: rotate(60deg); }
+  .confetti--10 { width: 8px; height: 8px; background: var(--color-brand-secondary); top: 5%; left: 50%; animation-duration: 7s; animation-delay: 2.5s; border-radius: 50%; }
+  .confetti--11 { width: 14px; height: 5px; background: var(--color-brand-accent); top: 65%; left: 65%; animation-duration: 5.5s; animation-delay: 1.2s; transform: rotate(-45deg); }
+  .confetti--12 { width: 10px; height: 10px; background: var(--color-brand-primary); top: 25%; left: 35%; animation-duration: 6.5s; animation-delay: 0.6s; }
+
+  @keyframes confetti-float {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+    25% { transform: translateY(-12px) rotate(90deg); opacity: 1; }
+    50% { transform: translateY(8px) rotate(180deg); opacity: 0.6; }
+    75% { transform: translateY(-6px) rotate(270deg); opacity: 0.9; }
+    100% { transform: translateY(0) rotate(360deg); opacity: 0.7; }
+  }
+
+  /* Staggered hero entrance animations */
+  .hero-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: hero-enter 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  .hero-animate[data-delay="0"] { animation-delay: 0ms; }
+  .hero-animate[data-delay="100"] { animation-delay: 100ms; }
+  .hero-animate[data-delay="250"] { animation-delay: 250ms; }
+  .hero-animate[data-delay="450"] { animation-delay: 450ms; }
+  .hero-animate[data-delay="600"] { animation-delay: 600ms; }
+
+  @keyframes hero-enter {
+    0% { opacity: 0; transform: translateY(30px) scale(0.96); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding: 6rem 1rem 5rem;
+      min-height: 90svh;
+    }
+    .hero-detail-pill {
+      font-size: 0.9rem;
+      padding: 0.55rem 1.1rem;
+    }
+  }
+</style>

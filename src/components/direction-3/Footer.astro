@@ -1,0 +1,118 @@
+---
+/**
+ * Footer — Dark, clean Creative Labs branding.
+ * Crafted sign-off. Diamond motifs. Minimal and sharp.
+ */
+---
+
+<footer class="noche-footer" aria-label="Site footer">
+  <div class="footer-inner">
+    <div class="footer-divider" aria-hidden="true">
+      <span class="footer-line"></span>
+      <span class="footer-diamond"></span>
+      <span class="footer-line"></span>
+    </div>
+
+    <div class="footer-brand">
+      <span class="footer-brand-name">Creative Labs Learning Center</span>
+    </div>
+
+    <p class="footer-signoff">Spring Fiesta 2026 — A night to remember.</p>
+
+    <p class="footer-address">6180 Atlanta Highway, Alpharetta, GA 30004</p>
+
+    <div class="footer-bottom">
+      <span class="footer-diamond-sm" aria-hidden="true"></span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  @reference "../../styles/global.css";
+
+  .noche-footer {
+    padding: 4rem 1.5rem 3rem;
+    background: var(--color-brand-bg);
+    border-top: 1px solid rgba(255, 208, 36, 0.08);
+  }
+
+  .footer-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* ── Top divider ── */
+  .footer-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-line {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 208, 36, 0.3), transparent);
+  }
+
+  .footer-diamond {
+    width: 8px;
+    height: 8px;
+    background: var(--color-brand-primary);
+    transform: rotate(45deg);
+    box-shadow: 0 0 8px rgba(255, 208, 36, 0.3);
+  }
+
+  /* ── Brand ── */
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-brand-name {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--color-brand-text);
+    letter-spacing: -0.01em;
+  }
+
+  .footer-signoff {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-brand-muted);
+    margin: 0 0 0.5rem;
+    font-style: italic;
+  }
+
+  .footer-address {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: rgba(153, 153, 153, 0.6);
+    margin: 0;
+    letter-spacing: 0.03em;
+  }
+
+  .footer-bottom {
+    margin-top: 2.5rem;
+  }
+
+  .footer-diamond-sm {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--color-brand-primary);
+    transform: rotate(45deg);
+    opacity: 0.4;
+  }
+
+  @media (max-width: 480px) {
+    .noche-footer {
+      padding: 3rem 1rem 2rem;
+    }
+  }
+</style>

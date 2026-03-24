@@ -1,0 +1,65 @@
+---
+import IconBrain from "@tabler/icons/outline/brain.svg";
+import IconChartLine from "@tabler/icons/outline/chart-line.svg";
+import IconCode from "@tabler/icons/outline/code.svg";
+import IconShieldCheck from "@tabler/icons/outline/shield-check.svg";
+
+import Feature15, { type BentoFeature } from "./Feature15.astro";
+
+// Keep the ordering of cards: large, small, small, large, small, small
+const features: BentoFeature[] = [
+  {
+    type: "large",
+    badge: "AI Powered",
+    title: "Intelligent Automation",
+    description:
+      "Leverage AI to automate repetitive tasks, optimize workflows, and make smarter decisions. Our machine learning models continuously improve based on your usage patterns.",
+    image: {
+      src: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
+      alt: "AI automation",
+    },
+  },
+  {
+    type: "small",
+    icon: IconCode,
+    title: "Developer Tools",
+    description: "Modern APIs, SDKs, and CLI tools for seamless integration.",
+  },
+  {
+    type: "small",
+    icon: IconShieldCheck,
+    title: "Enterprise Security",
+    description: "SOC 2 compliant with end-to-end encryption and audit logs.",
+  },
+  {
+    type: "large",
+    badge: "Analytics",
+    title: "Real-time Insights",
+    description:
+      "Track every metric that matters with our comprehensive analytics dashboard. Visualize trends, monitor performance, and make data-driven decisions with confidence.",
+    image: {
+      src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      alt: "Analytics dashboard",
+    },
+  },
+  {
+    type: "small",
+    icon: IconChartLine,
+    title: "Performance",
+    description: "Lightning-fast infrastructure with 99.99% uptime guarantee.",
+  },
+  {
+    type: "small",
+    icon: IconBrain,
+    title: "Smart Workflows",
+    description: "Automate complex processes with intelligent workflow builder.",
+  },
+];
+---
+
+<Feature15
+  tagline="Platform Overview"
+  heading="A complete solution for modern teams"
+  description="Everything you need to build, ship, and scale your products. From development to deployment, we've got you covered."
+  features={features}
+/>

@@ -1,0 +1,55 @@
+---
+/**
+ * PartnerBanner — Rebuilt using Starwind Pro CTA 6 (Background Image Card).
+ * Full-width food photo background with Elote King partnership callout.
+ */
+import Cta6 from "@/components/starwind-pro/cta-06/Cta6.astro";
+---
+
+<div class="partner-wrap scroll-reveal">
+  <Cta6
+    title="In Collaboration With Elote King Atlanta"
+    description="Bringing the heat, the flavor, and the fiesta energy to Creative Labs Spring Fiesta."
+    backgroundImage="/images/squad_with_food.jpg"
+    primaryButton={{ text: "View Menu", href: "https://www.elotekingatlanta.com" }}
+  />
+</div>
+
+<style>
+  @reference "../../styles/global.css";
+
+  .partner-wrap {
+    background: var(--color-brand-bg);
+  }
+
+  /* Text legibility via text-shadow — no overlay pattern */
+  .partner-wrap :global(h2) {
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8), 0 4px 40px rgba(0, 0, 0, 0.5);
+  }
+  .partner-wrap :global(p) {
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Bigger button */
+  .partner-wrap :global(a[class*="button"]) {
+    padding: 0.875rem 2.5rem;
+    font-size: 1rem;
+  }
+
+  /* More padding */
+  .partner-wrap :global(.relative.z-10) {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  /* Scroll reveal */
+  .partner-wrap {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .partner-wrap.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

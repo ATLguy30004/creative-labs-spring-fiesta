@@ -1,0 +1,92 @@
+Most service pages are the same structure with different content. A hero, some benefits, a FAQ, a CTA. Building each one from scratch is a waste of time. Content collections let you build one template and fill it with markdown files. Like a lightweight CMS, except there's no CMS to maintain.
+
+
+
+What Are Content Collections?
+
+The idea is simple. You create a page template that defines the design and sections. Then you create markdown files that fill in the content for each service. Astro matches them up.
+
+
+
+This works for anything that follows a pattern. Blog posts, service pages, author profiles, location pages, team members. If you have multiple items of the same type, you have a content collection.
+
+The payoff: to add a new service page, you create a markdown file. To edit the copy on an existing one, you open the markdown file and change the text. No code. No design work. The template handles all of that.
+
+
+
+The Prompt Approach
+
+Go into plan mode, load /frontend-design, and give Claude a detailed prompt. The key here is telling Claude you want content collections, linking the docs, and listing the existing pages to rebuild.
+
+I want to now start building service pages. I need five service pages. They already exist on the original site and I want us to work together — ask me questions about what I want on these service pages.
+
+I want to use content collections on Astro. Here's the documentation: [paste Astro content collections docs URL]
+
+The idea is we just have markdown files that we can add to the website to add more services or quickly edit the copy. I want these pages to be beautiful, highly conversion-optimized, and follow the design principles of the website.
+
+Current service pages to rebuild:
+[list your URLs here]
+
+Notice the "ask me questions" part. You're inviting Claude into an interview, not handing it a spec.
+
+
+
+The Interview Process
+
+Claude will ask you a series of questions before building anything. This is where you shape the result.
+
+Expect questions about whether to rewrite the copy or reuse what exists, how to handle paused services (showing them with a notice vs hiding them entirely), navigation structure (a dropdown menu for services works well), and whether to show pricing or hide it behind a consultation CTA.
+
+You'll also define the page sections together. A good service page typically has a hero, feature highlights, a "what's included" breakdown, a "who is this for" section, testimonials, FAQ, and a strong CTA. Claude will suggest this structure and you tweak it.
+
+Don't rush the interview. Better questions now means fewer revision rounds later.
+
+
+
+What You Get
+
+Five service pages, all using the same template but with custom copy for each. They reuse components from the homepage (hero style, CTAs, design tokens) so everything feels consistent. The navigation gets a dropdown menu for services.
+
+Each service's content lives as a markdown file under src/content/. The file has frontmatter at the top (title, description, status, features) and a markdown body below. Here's what editing looks like in practice:
+
+
+
+
+
+Add a new service: Create a new markdown file following the same format. The page appears automatically.
+
+
+
+Edit existing copy: Open the markdown file, change the text. Done.
+
+
+
+Pause a service: Change a status field in the frontmatter. The template shows a notice instead of a CTA.
+
+
+
+Remove a service: Delete the file.
+
+It works exactly like a blog. The template handles the design. You handle the words.
+
+
+
+After Building
+
+Two things to do before you move on.
+
+First, ask Claude to update its own documentation about how content collections work. You want a reference linked from CLAUDE.md so future prompts can build on this pattern.
+
+Update your documentation to explain how our content collections work — the file structure, the frontmatter fields, and how to add new services. Link it from CLAUDE.md.
+
+Second, do the full deploy cycle. Commit your changes, publish the branch, check the Cloudflare preview URL, create a PR, merge to main, and sync your local repo.
+
+Pro tip: Think about what else could be a content collection. Testimonials, team members, portfolio items, case studies, location pages. Anytime you catch yourself building the same page structure twice, that's a content collection waiting to happen.
+
+Real talk: Content collections are one of Astro's superpowers. Once you set one up, adding new items is literally just creating a markdown file. Non-technical team members can do it. You can do it from your phone if you really want to.
+
+
+
+Service pages are built. But your site probably has small visual details that need ironing out. Spacing that's off, colors that don't quite pop, mobile layouts that need tweaking. 
+
+Next lesson covers a different way to refine those details using the Claude Desktop App.

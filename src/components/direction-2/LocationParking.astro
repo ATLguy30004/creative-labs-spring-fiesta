@@ -1,0 +1,273 @@
+---
+/**
+ * Location + Parking — Address, parking info.
+ * Clean, spacious layout with map-pin illustration.
+ * Organic border-radius, soft green surface background.
+ */
+---
+
+<section class="location scroll-reveal" aria-label="Location and parking">
+  <!-- Curve divider top -->
+  <div class="location-curve" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,80 C360,20 720,60 1080,10 C1260,-8 1380,30 1440,20 L1440,80 Z" fill="var(--color-brand-surface)" opacity="0.5"/>
+      <path d="M0,80 C480,40 960,70 1440,30 L1440,80 Z" fill="var(--color-brand-surface)"/>
+    </svg>
+  </div>
+
+  <div class="location-container">
+    <div class="location-layout">
+      <!-- Map / illustration side -->
+      <div class="location-visual" aria-hidden="true">
+        <div class="map-frame">
+          <!-- Stylized map illustration -->
+          <svg class="map-illustration" width="100%" height="100%" viewBox="0 0 320 280" fill="none">
+            <!-- Background roads -->
+            <path d="M0 140 L320 140" stroke="var(--color-brand-primary)" stroke-width="1" opacity="0.1"/>
+            <path d="M160 0 L160 280" stroke="var(--color-brand-primary)" stroke-width="1" opacity="0.1"/>
+            <path d="M0 80 L320 200" stroke="var(--color-brand-primary)" stroke-width="0.75" opacity="0.08"/>
+            <path d="M0 200 L320 80" stroke="var(--color-brand-primary)" stroke-width="0.75" opacity="0.08"/>
+
+            <!-- Tree/nature blobs -->
+            <circle cx="60" cy="60" r="20" fill="var(--color-brand-primary)" opacity="0.08"/>
+            <circle cx="260" cy="80" r="15" fill="var(--color-brand-primary)" opacity="0.06"/>
+            <circle cx="80" cy="220" r="18" fill="var(--color-brand-primary)" opacity="0.07"/>
+            <circle cx="240" cy="200" r="22" fill="var(--color-brand-primary)" opacity="0.05"/>
+
+            <!-- Main road (Atlanta Highway) -->
+            <path d="M0 140 L320 120" stroke="var(--color-brand-muted)" stroke-width="4" opacity="0.15" stroke-linecap="round"/>
+            <text x="200" y="108" font-family="var(--font-body)" font-size="8" fill="var(--color-brand-muted)" opacity="0.5">Atlanta Hwy</text>
+
+            <!-- Location pin -->
+            <g transform="translate(140, 100)">
+              <circle cx="20" cy="38" rx="16" ry="4" fill="var(--color-brand-primary)" opacity="0.1"/>
+              <path d="M20 0 C9 0 0 8.5 0 19 C0 33 20 42 20 42 C20 42 40 33 40 19 C40 8.5 31 0 20 0Z" fill="var(--color-brand-primary)" opacity="0.8"/>
+              <circle cx="20" cy="18" r="7" fill="white" opacity="0.9"/>
+              <circle cx="20" cy="18" r="3" fill="var(--color-brand-primary)" opacity="0.6"/>
+            </g>
+
+            <!-- Small botanical decorations -->
+            <path d="M280 240 C280 240 275 220 285 210" stroke="var(--color-brand-primary)" stroke-width="1" opacity="0.15" fill="none"/>
+            <ellipse cx="287" cy="208" rx="6" ry="4" fill="var(--color-brand-primary)" opacity="0.1" transform="rotate(-30 287 208)"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Info side -->
+      <div class="location-info">
+        <p class="section-eyebrow">Find Us</p>
+        <h2 class="section-heading">
+          Where the
+          <span class="heading-accent"><em>Party</em> Happens</span>
+        </h2>
+
+        <div class="info-block">
+          <div class="info-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand-primary)" stroke-width="1.5" stroke-linecap="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="info-label">Address</h3>
+            <p class="info-value">Creative Labs Center</p>
+            <p class="info-detail">6180 Atlanta Highway<br/>Alpharetta, GA 30004</p>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand-primary)" stroke-width="1.5" stroke-linecap="round">
+              <rect x="1" y="3" width="15" height="13" rx="2"/>
+              <path d="M16 8l4-3v13l-4-3"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="info-label">Parking</h3>
+            <p class="info-value">Free on-site parking</p>
+            <p class="info-detail">Plenty of space — just pull in and enjoy the night.</p>
+          </div>
+        </div>
+
+        <a href="https://maps.google.com/?q=6180+Atlanta+Highway+Alpharetta+GA+30004" target="_blank" rel="noopener noreferrer" class="directions-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+          Get Directions
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .location {
+    position: relative;
+    padding: clamp(4rem, 8vw, 7rem) 1.5rem clamp(5rem, 10vw, 8rem);
+    background: var(--color-brand-surface);
+  }
+
+  .location-curve {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    line-height: 0;
+    transform: translateY(-99%);
+    pointer-events: none;
+  }
+
+  .location-curve svg {
+    width: 100%;
+    height: 60px;
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    .location-curve svg {
+      height: 80px;
+    }
+  }
+
+  .location-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .location-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .location-layout {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+  }
+
+  .map-frame {
+    background: white;
+    border-radius: 24px;
+    padding: 1rem;
+    box-shadow: 0 4px 20px rgba(30, 58, 30, 0.05);
+    border: 1px solid rgba(113, 175, 71, 0.08);
+    overflow: hidden;
+    aspect-ratio: 4 / 3.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .map-illustration {
+    width: 100%;
+    height: 100%;
+  }
+
+  .section-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-brand-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-brand-text);
+    line-height: 1.15;
+    margin: 0 0 2rem 0;
+  }
+
+  .heading-accent {
+    color: var(--color-brand-primary);
+  }
+
+  .info-block {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .info-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(30, 58, 30, 0.04);
+  }
+
+  .info-label {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-brand-muted);
+    margin: 0 0 0.25rem 0;
+  }
+
+  .info-value {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-brand-text);
+    margin: 0 0 0.2rem 0;
+  }
+
+  .info-detail {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--color-brand-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .directions-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-brand-primary);
+    text-decoration: none;
+    padding: 0.65rem 1.25rem;
+    border: 1.5px solid var(--color-brand-primary);
+    border-radius: 100px;
+    margin-top: 0.5rem;
+    transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.3s ease,
+                transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .directions-link:hover {
+    background: var(--color-brand-primary);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* Scroll reveal */
+  .location {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .location.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

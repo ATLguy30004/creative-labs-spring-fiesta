@@ -1,0 +1,174 @@
+---
+/**
+ * Partnership Banner — "In collaboration with Elote King Atlanta"
+ * Organic, warm treatment with botanical framing.
+ * Overlaps section boundaries with negative margin.
+ */
+---
+
+<section class="partner-banner scroll-reveal" aria-label="Partnership with Elote King Atlanta">
+  <div class="banner-container">
+    <!-- Botanical frame elements -->
+    <svg class="banner-leaf banner-leaf--left" width="60" height="90" viewBox="0 0 60 90" fill="none" aria-hidden="true">
+      <path d="M30 85 C30 85 5 50 30 5 C55 50 30 85 30 85Z" fill="var(--color-brand-primary)" opacity="0.1"/>
+      <path d="M30 5 C30 5 30 45 30 85" stroke="var(--color-brand-primary)" stroke-width="1" opacity="0.2"/>
+      <path d="M30 30 C38 26 48 28 50 32" stroke="var(--color-brand-primary)" stroke-width="0.75" opacity="0.15"/>
+      <path d="M30 50 C22 46 12 48 10 52" stroke="var(--color-brand-primary)" stroke-width="0.75" opacity="0.15"/>
+    </svg>
+
+    <svg class="banner-leaf banner-leaf--right" width="60" height="90" viewBox="0 0 60 90" fill="none" aria-hidden="true">
+      <path d="M30 85 C30 85 5 50 30 5 C55 50 30 85 30 85Z" fill="var(--color-brand-primary)" opacity="0.1"/>
+      <path d="M30 5 C30 5 30 45 30 85" stroke="var(--color-brand-primary)" stroke-width="1" opacity="0.2"/>
+      <path d="M30 30 C22 26 12 28 10 32" stroke="var(--color-brand-primary)" stroke-width="0.75" opacity="0.15"/>
+      <path d="M30 50 C38 46 48 48 50 52" stroke="var(--color-brand-primary)" stroke-width="0.75" opacity="0.15"/>
+    </svg>
+
+    <div class="banner-content">
+      <p class="banner-label">Proudly Presented</p>
+      <h2 class="banner-heading">
+        In Collaboration with
+        <span class="banner-partner">Elote King Atlanta</span>
+      </h2>
+      <p class="banner-tagline">Bringing together community, flavor, and celebration.</p>
+
+      <!-- Decorative divider -->
+      <svg class="banner-divider" width="120" height="12" viewBox="0 0 120 12" fill="none" aria-hidden="true">
+        <path d="M0 6 C20 2, 40 10, 60 6 C80 2, 100 10, 120 6" stroke="var(--color-brand-primary)" stroke-width="1.5" fill="none" opacity="0.3" stroke-linecap="round"/>
+      </svg>
+
+      <div class="banner-logos">
+        <span class="logo-text logo-text--cl">Creative Labs</span>
+        <svg class="logo-x" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M4 4 L12 12 M12 4 L4 12" stroke="var(--color-brand-muted)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="logo-text logo-text--ek">Elote King</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .partner-banner {
+    padding: clamp(3rem, 6vw, 5rem) 1.5rem;
+    background: var(--color-brand-bg);
+    text-align: center;
+    position: relative;
+    overflow: visible;
+  }
+
+  .banner-container {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    background: white;
+    border-radius: 28px;
+    padding: clamp(2.5rem, 5vw, 4rem) 2rem;
+    box-shadow: 0 8px 40px rgba(30, 58, 30, 0.06);
+    border: 1px solid rgba(113, 175, 71, 0.08);
+  }
+
+  .banner-leaf {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .banner-leaf--left {
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(15deg);
+  }
+
+  .banner-leaf--right {
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-15deg) scaleX(-1);
+  }
+
+  @media (max-width: 639px) {
+    .banner-leaf { display: none; }
+  }
+
+  .banner-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .banner-label {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-brand-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .banner-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 600;
+    color: var(--color-brand-text);
+    line-height: 1.25;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .banner-partner {
+    display: block;
+    color: var(--color-brand-primary);
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+  }
+
+  .banner-tagline {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-brand-muted);
+    margin: 0 0 1.5rem 0;
+    line-height: 1.6;
+  }
+
+  .banner-divider {
+    display: block;
+    margin: 0 auto 1.5rem;
+  }
+
+  .banner-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .logo-text {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .logo-text--cl {
+    color: var(--color-brand-primary);
+  }
+
+  .logo-text--ek {
+    color: var(--color-brand-accent);
+  }
+
+  .logo-x {
+    flex-shrink: 0;
+    opacity: 0.5;
+  }
+
+  /* Scroll reveal - gentle scale */
+  .partner-banner {
+    opacity: 0;
+    transform: scale(0.96);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .partner-banner.revealed {
+    opacity: 1;
+    transform: scale(1);
+  }
+</style>

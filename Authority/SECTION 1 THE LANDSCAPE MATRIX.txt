@@ -1,0 +1,95 @@
+SECTION 1: THE LANDSCAPE MATRIX
+The Practical Paths (Execution Focus)
+The "Bundle-First" UI: The top of the page doesn't sell "tacos"; it sells the "Elote King All-Access Pass" (Food + Bull Ride + Fast Pass).
+
+Visual Menu Blocks: High-resolution, "food-porn" tiles with one-click "Add to Cart."
+
+SMS Capture Loop: A "Text BULL to [Number]" popup for a 10% discount, building a broadcast list for the day of the event.
+
+The "Fast-Pass" Upsell: A toggle at checkout: "Add $10 to skip the Bull Ride line."
+
+Location Pin Integration: A live Google Maps embed with "Get Directions" prominent for the Atlanta crowd.
+
+The Traps & Warnings
+The "Decision Fatigue" Trap: If you offer 20 different menu items, pre-orders will tank. Stick to 5 high-margin "King’s Specials."
+
+The Payment Friction: Use Apple Pay/Google Pay. If a user has to type their credit card number on a mobile phone while looking at a bull, they will quit.
+
+The Asymmetric Plays
+The "Bounty" Leaderboard: A live section showing "Confirmed Riders" and their "Goal Time." It gamifies the event before it starts.
+
+The "Influencer Ticket": Create a "Refer a Friend" link on the Thank You page. If 3 friends buy, the original buyer gets their Elote free.
+
+The "WOW" Factor
+The "Bull-Cam" Tease: A grainy, high-energy 10-second clip of the bull bucking at night with a "You're Next" overlay.
+
+SECTION 2: THE WAR ROOM TRANSCRIPT
+SME (Event Director): We need a Single Page App (SPA) feel. No clicking to new pages. The user scrolls, gets hungry, gets hyped, and pays. Use the Denver Top Taco aesthetic—bold blacks, neon yellows, and high-contrast photography.
+
+SKEPTIC: I’m killing the "Menu" as a separate page. It’s a waste of time. If they aren’t buying a bundle in the first 2 scrolls, we’ve lost them. Also, the "Ride the Bull for X seconds" needs to be a Waiver-First Purchase. You can't let them buy a ride and then find out they’re too drunk or have a back injury. Put the disclaimer in the footer of the purchase block.
+
+PRAGMATIST: Let’s talk tech. Use Shopify with the PageFly app for the UI. It handles the "Massive Pre-order" volume without crashing. The "Sections" need to be modular so the VA can drag and drop.
+
+GAP ANALYST: The "Secret Sauce" is the Clock. A countdown timer to March 28th creates a psychological "Buy or Miss Out" trigger. We also need a "Rider Count"—showing "42/100 Bull Slots Taken" creates instant scarcity.
+
+EDITOR (Creative Director): Enough talk. Here is the Ready-to-Build Blueprint for the VA.
+
+SECTION 3: THE FULL LANDING PAGE DESIGN (VA-READY)
+SECTION 1: THE HERO (The "Hook")
+Background: Full-width autoplay video (Muted). Footage: Slow-mo bull bucking + Atlanta skyline + Close up of Elote being torched.
+
+Headline (H1): THE KING OF THE BULL. THE KING OF THE STREET.
+
+Sub-headline: March 28th | Atlanta, GA | Can You Last 8 Seconds?
+
+Primary CTA (Button): [GET YOUR ALL-ACCESS PASS - $45]
+
+Secondary CTA: [VIEW THE MENU]
+
+SECTION 2: THE "GAUNTLET" (The Offer)
+Copy: "The 15-Second Challenge."
+
+The Prize: "Stay on for 15 seconds, win the Golden Elote Trophy + $100 Cash. All riders get a digital photo of their 'Wipeout'."
+
+Design Element: A "Rider Leaderboard" placeholder with "Current Record: 0.00 Seconds (Who will be first?)"
+
+SECTION 3: THE PRE-ORDER BUNDLES (The Revenue)
+Card A: "The King’s Feast" ($45) - Best Value
+
+Includes: 1 Signature Elote, 2 Street Tacos, 1 Drink, 1 Bull Ride Pass (Fast-Track).
+
+Card B: "The Rider's Solo" ($20)
+
+Includes: 1 Bull Ride + 1 Signature Elote.
+
+Card C: "The Spectator" ($25)
+
+Includes: Food Sampler + Event Entry.
+
+SECTION 4: THE STREET MENU (Visual Grid)
+Item 1: Elote Traditional - Cotija, Lime, Secret Spice.
+
+Item 2: The Atlanta Hot Elote - Crushed Flamin' Hot Cheetos, Buffalo Drizzle.
+
+Item 3: Steak Tacos de la Calle - Cilantro, Onion, Hand-pressed Tortilla.
+
+Note to VA: Use high-saturation "Food Porn" style images only.
+
+SECTION 5: THE HYPE SQUAD (Social Proof)
+Visual: 3x3 Grid of Instagram Posts from @EloteKingAtlanta.
+
+Caption: "Don't just watch it on TikTok. Be the TikTok."
+
+SECTION 6: THE LOCATION & COUNTDOWN
+Left Column: Google Maps Embed (Atlanta Location).
+
+Right Column: Large Digital Countdown Timer.
+
+Footer CTA: "Pre-orders close March 27 at Midnight. No exceptions."
+
+FINAL COPY MODEL: "THE STREET ROYALTY" TONE
+Voice: Bold, Aggressive, Authentic, Atlanta-centric.
+
+Keywords: "Bucked," "Smoked," "Legendary," "The Pit," "The Throne."
+
+Would you like me to generate the specific image prompts for your designer to use for the Bull and Elote assets?

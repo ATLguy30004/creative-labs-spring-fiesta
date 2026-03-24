@@ -1,0 +1,173 @@
+---
+/**
+ * EventDetails — Date, time, location in a colorful tile grid.
+ * Unmissable event info with coral accents, pill shapes, confetti dots.
+ */
+---
+
+<section class="event-details" id="details">
+  <div class="event-details-inner">
+    <h2 class="section-eyebrow">The Details</h2>
+    <h3 class="section-heading">Everything You Need to Know</h3>
+
+    <div class="details-grid">
+      <div class="detail-card detail-card--date scroll-reveal" data-reveal="slide-up">
+        <div class="detail-icon" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <span class="detail-label">Date</span>
+        <span class="detail-value">Saturday, March 28</span>
+        <span class="confetti-diamond" aria-hidden="true"></span>
+      </div>
+
+      <div class="detail-card detail-card--time scroll-reveal" data-reveal="slide-up" style="--reveal-delay: 100ms;">
+        <div class="detail-icon" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <span class="detail-label">Time</span>
+        <span class="detail-value">7:00 PM — 11:00 PM</span>
+        <span class="confetti-diamond confetti-diamond--green" aria-hidden="true"></span>
+      </div>
+
+      <div class="detail-card detail-card--location detail-card--wide scroll-reveal" data-reveal="scale" style="--reveal-delay: 200ms;">
+        <div class="detail-icon" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <span class="detail-label">Location</span>
+        <span class="detail-value">Creative Labs Center</span>
+        <span class="detail-address">6180 Atlanta Highway, Alpharetta, GA 30004</span>
+        <span class="confetti-diamond confetti-diamond--yellow" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @reference "../../styles/global.css";
+
+  .event-details {
+    position: relative;
+    padding: 5rem 1.5rem 6rem;
+    background: var(--color-brand-bg);
+  }
+
+  .event-details-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section-eyebrow {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-brand-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-heading {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-brand-text);
+    letter-spacing: -0.03em;
+    margin: 0 0 3rem;
+  }
+
+  .details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .detail-card {
+    position: relative;
+    background: white;
+    border-radius: 24px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    border: 2px solid var(--color-brand-surface);
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+  }
+
+  .detail-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(255, 92, 53, 0.12);
+  }
+
+  .detail-card--wide {
+    grid-column: 1 / -1;
+  }
+
+  .detail-icon {
+    margin-bottom: 1rem;
+  }
+
+  .detail-label {
+    display: block;
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-brand-muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .detail-value {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: clamp(1.25rem, 3vw, 1.6rem);
+    color: var(--color-brand-text);
+    letter-spacing: -0.02em;
+  }
+
+  .detail-address {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-brand-muted);
+    margin-top: 0.3rem;
+  }
+
+  /* Confetti diamond decorations */
+  .confetti-diamond {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 16px;
+    height: 16px;
+    background: var(--color-brand-accent);
+    transform: rotate(45deg);
+    border-radius: 3px;
+    opacity: 0.6;
+  }
+  .confetti-diamond--green { background: var(--color-brand-primary); }
+  .confetti-diamond--yellow { background: var(--color-brand-secondary); }
+
+  /* Scroll-reveal base states */
+  .scroll-reveal {
+    opacity: 0;
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .scroll-reveal[data-reveal="slide-up"] { transform: translateY(40px); }
+  .scroll-reveal[data-reveal="scale"] { transform: scale(0.92); }
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  @media (max-width: 600px) {
+    .details-grid {
+      grid-template-columns: 1fr;
+    }
+    .detail-card--wide {
+      grid-column: 1;
+    }
+  }
+</style>

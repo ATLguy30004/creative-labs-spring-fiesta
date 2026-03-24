@@ -1,0 +1,12 @@
+/* Self-hosted variable fonts — all direction fonts loaded for prototyping.
+   After picking a direction, unused font imports are removed. */
+@import '@fontsource-variable/baloo-2';
+@import '@fontsource-variable/nunito';
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/dm-sans';
+@import '@fontsource-variable/raleway';
+@import '@fontsource-variable/outfit';
+
+@import "tailwindcss";
+@import "./theme.css";
+@import "./base.css";

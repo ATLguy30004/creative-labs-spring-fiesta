@@ -1,0 +1,128 @@
+{
+  "project": "Creative Labs Spring Fiesta Invite",
+  "direction": {
+    "number": 3,
+    "name": "Noche de Fiesta",
+    "page_file": "src/pages/direction-3-noche-de-fiesta.astro",
+    "components_dir": "src/components/direction-3/",
+    "components_in_order": [
+      "Nav.astro",
+      "Hero.astro",
+      "EventDetails.astro",
+      "FreeTickets.astro",
+      "FoodActivities.astro",
+      "LocationParking.astro",
+      "PartnerBanner.astro",
+      "Footer.astro"
+    ]
+  },
+
+  "dev_server": {
+    "command": "npm run dev -- --port 4322 --host",
+    "url": "http://localhost:4322/direction-3-noche-de-fiesta",
+    "reveal_scroll_animations": "document.querySelectorAll('.scroll-reveal').forEach(el => el.classList.add('revealed'));"
+  },
+
+  "brief_files": [
+    ".new-site/brief.md",
+    ".new-site/directions.json"
+  ],
+
+  "logos": {
+    "elote_king": "Content/eloteking-logo.png",
+    "creative_labs_source": "Content/Creative learning logo copy.pdf",
+    "creative_labs_note": "Convert the PDF to PNG before use. Use Bash: `magick 'Content/Creative learning logo copy.pdf' -density 300 public/logos/creative-labs-logo.png` — if ImageMagick not available, use Python Pillow or flag to Fahim."
+  },
+
+  "hero_video": {
+    "instruction": "Compile a hero highlight reel from the highest-energy moments across the two source videos. Use ffmpeg to concatenate scenes. Output to public/videos/hero-highlight.mp4.",
+    "source_videos": {
+      "bull_original": "Content/Guy riding the bull and falling.mp4",
+      "girls_captioned": "Content/video2_girls_captioned.mp4"
+    },
+    "pre_cut_scenes": {
+      "scene_01_mount": "Content/_enhanced/creative-labs-spring-fiesta/scene_01_mount.mp4",
+      "scene_02_riding": "Content/_enhanced/creative-labs-spring-fiesta/scene_02_riding.mp4",
+      "scene_03_fall": "Content/_enhanced/creative-labs-spring-fiesta/scene_03_full_fall.mp4",
+      "hero_graded": "Content/_enhanced/creative-labs-spring-fiesta/hero_bull_graded.mp4",
+      "food_vibes": "Content/_enhanced/creative-labs-spring-fiesta/event_food_vibes.mp4"
+    },
+    "recommended_sequence": "scene_01_mount → scene_02_riding → scene_03_fall (the viral fall is the highest-energy moment — end on it)",
+    "ffmpeg_command": "ffmpeg -i Content/_enhanced/creative-labs-spring-fiesta/scene_01_mount.mp4 -i Content/_enhanced/creative-labs-spring-fiesta/scene_02_riding.mp4 -i Content/_enhanced/creative-labs-spring-fiesta/scene_03_full_fall.mp4 -filter_complex '[0:v][1:v][2:v]concat=n=3:v=1[outv]' -map '[outv]' -c:v libx264 -crf 23 -preset fast public/videos/hero-highlight.mp4"
+  },
+
+  "images": {
+    "note": "Use real photos throughout. Prefer _enhanced/ versions — they are color-graded for the brand palette. Use in: hero overlays, activity cards, gallery reels, food sections, location sections.",
+    "crowd_energy": [
+      "Content/_enhanced/creative-labs-spring-fiesta/crowd_selfie_golden_hour.jpg",
+      "Content/_enhanced/creative-labs-spring-fiesta/crowd_families_at_event.jpg",
+      "Content/_enhanced/creative-labs-spring-fiesta/crowd_families.jpg",
+      "Content/_enhanced/creative-labs-spring-fiesta/crowd_selfie.jpg",
+      "Content/Crowd1.jpeg",
+      "Content/Crowd 2.jpeg"
+    ],
+    "bull_ride_action": [
+      "Content/_enhanced/creative-labs-spring-fiesta/rider_action_zoom.jpg",
+      "Content/_enhanced/creative-labs-spring-fiesta/rider_waving_zoom.jpg",
+      "Content/_enhanced/creative-labs-spring-fiesta/rider_smiling_zoom.jpg",
+      "Content/_enhanced/creative-labs-spring-fiesta/rider_waving.jpg",
+      "Content/Ride waving and smiling.jpeg",
+      "Content/Rider smiling, have to zoom into her.jpeg"
+    ],
+    "food_and_vibe": [
+      "Content/_enhanced/creative-labs-spring-fiesta/event_food_vibes.mp4",
+      "Content/_enhanced/creative-labs-spring-fiesta/community_eating_together.jpg",
+      "Content/_enhanced/creative-labs-spring-fiesta/squad_with_food.jpg",
+      "Content/Taco toast.png",
+      "Content/01_squad_clean.jpg"
+    ],
+    "moments": [
+      "Content/_enhanced/creative-labs-spring-fiesta/event_moment_01.jpg",
+      "Content/_enhanced/creative-labs-spring-fiesta/event_moment_02.jpg",
+      "Content/_enhanced/creative-labs-spring-fiesta/family_watching_bull.jpg",
+      "Content/_enhanced/creative-labs-spring-fiesta/family_picnic_day.jpg",
+      "Content/02_tornado_viral.jpg",
+      "Content/03_trunk_clean.jpg"
+    ],
+    "preview_strips": [
+      "Content/_preview/bull_001.jpg",
+      "Content/_preview/bull_002.jpg",
+      "Content/_preview/bull_003.jpg",
+      "Content/_preview/bull_004.jpg",
+      "Content/_preview/bull_005.jpg",
+      "Content/_preview/bull_006.jpg",
+      "Content/_preview/bull_007.jpg",
+      "Content/_preview/bull_008.jpg",
+      "Content/_preview/girls_001.jpg",
+      "Content/_preview/girls_002.jpg",
+      "Content/_preview/girls_003.jpg",
+      "Content/_preview/girls_004.jpg",
+      "Content/_preview/girls_005.jpg"
+    ]
+  },
+
+  "design_constraints": {
+    "rule": "You do NOT design from scratch. You do NOT make component decisions independently.",
+    "for_rebuild_sections": [
+      "1. Search Starwind Pro for blocks that match the section's purpose",
+      "2. List all viable options — block name, what it looks like, why it fits",
+      "3. STOP. Report to Fahim and wait for his decision.",
+      "4. Only after Fahim picks: install the block via `npx starwind@latest add @starwind-pro/[block-name]`",
+      "5. Then swap brand tokens and copy ONLY — nothing else"
+    ],
+    "for_refine_sections": "Polish only — spacing, typography tuning, micro-details, hover states. No structural changes.",
+    "allowed_changes_on_any_component": [
+      "Brand colors (swap to palette values)",
+      "Font families (swap to direction fonts)",
+      "Text content and copy",
+      "Image sources (use images from refine-context.json)"
+    ],
+    "never_do": [
+      "Design any section from scratch",
+      "Pick a Starwind block without Fahim's approval",
+      "Change HTML structure of installed blocks",
+      "Make layout or composition decisions independently"
+    ],
+    "if_no_starwind_block_exists": "Flag it clearly in the plan. Do not build. Fahim decides what happens next."
+  }
+}

@@ -1,0 +1,166 @@
+---
+/**
+ * Hero — REBUILT using Starwind Pro Hero 15 (Cinematic Split) structure.
+ * Matches Tony Robbins pattern: swapping stills background, text left, video card right.
+ * Background cycles through best event photos. Video preview card bottom-right.
+ */
+import { Button } from "@/components/starwind/button";
+---
+
+<section class="@container w-full">
+  <div
+    class="text-foreground dark relative isolate mx-auto min-h-[620px] w-full max-w-7xl overflow-hidden border-white/20 px-4 py-24 @3xl:rounded-3xl @3xl:border"
+  >
+    <!-- Cycling background stills -->
+    <div class="absolute inset-0 -z-30" id="hero-stills">
+      <img
+        src="/images/crowd_selfie_golden_hour.jpg"
+        alt="Spring Fiesta crowd selfie at golden hour"
+        class="hero-still hero-still--active size-full object-cover"
+        loading="eager"
+        data-index="0"
+      />
+      <img
+        src="/images/rider_smiling_zoom.jpg"
+        alt="Rider smiling on the mechanical bull"
+        class="hero-still size-full object-cover"
+        loading="eager"
+        data-index="1"
+      />
+      <img
+        src="/images/community_eating_together.jpg"
+        alt="Families eating together at the Spring Fiesta"
+        class="hero-still size-full object-cover"
+        loading="eager"
+        data-index="2"
+      />
+      <img
+        src="/images/crowd_families_at_event.jpg"
+        alt="Families at the event with mechanical bull in background"
+        class="hero-still size-full object-cover"
+        loading="eager"
+        data-index="3"
+      />
+      <img
+        src="/images/event_moment_02.jpg"
+        alt="Young family making memories at the Spring Fiesta"
+        class="hero-still size-full object-cover"
+        loading="eager"
+        data-index="4"
+      />
+    </div>
+    <!-- Dark gradient overlay -->
+    <div class="absolute inset-0 -z-20 bg-linear-to-r from-black/85 via-black/70 to-black/50"></div>
+    <div
+      class="from-primary-accent/20 absolute inset-0 -z-10 bg-linear-to-tr via-transparent to-transparent"
+    >
+    </div>
+
+    <div class="relative grid gap-10 @2xl:grid-cols-2 @2xl:items-center @3xl:gap-16">
+      <!-- Left: Event messaging -->
+      <div class="max-w-2xl">
+        <span class="mb-4 inline-block text-sm font-semibold tracking-widest uppercase" style="color: var(--color-brand-primary);">
+          Creative Labs Learning Center Presents
+        </span>
+
+        <h1
+          class="font-heading text-4xl font-black tracking-tight text-white @xl:text-5xl @3xl:text-7xl"
+          style="font-family: var(--font-heading); letter-spacing: -0.03em; line-height: 0.9;"
+        >
+          SPRING<br>FIESTA
+        </h1>
+
+        <div class="mt-6 flex items-center gap-4 text-white/90">
+          <div class="flex flex-col">
+            <span class="text-xs font-semibold tracking-widest uppercase" style="color: var(--color-brand-muted);">Date</span>
+            <span class="text-lg font-bold" style="font-family: var(--font-heading);">Saturday, March 28</span>
+          </div>
+          <span class="h-10 w-px" style="background: linear-gradient(180deg, transparent, var(--color-brand-primary), transparent);"></span>
+          <div class="flex flex-col">
+            <span class="text-xs font-semibold tracking-widest uppercase" style="color: var(--color-brand-muted);">Time</span>
+            <span class="text-lg font-bold" style="font-family: var(--font-heading);">7:00 PM – 11:00 PM</span>
+          </div>
+        </div>
+
+        <p class="mt-6 text-pretty text-white/85 @xl:text-lg" style="font-family: var(--font-body);">
+          One night. All the energy. All the flavor.
+        </p>
+
+        <div class="mt-8 flex flex-col gap-4 @xl:flex-row">
+          <Button href="#free-tickets" variant="primary" class="w-full rounded-full @xl:w-auto">
+            Get Your Free Tickets
+          </Button>
+        </div>
+      </div>
+
+      <!-- Right: Video preview card -->
+      <div class="w-full max-w-xl justify-self-end">
+        <div class="rounded-2xl border border-white/25 bg-white/10 p-2 shadow-2xl backdrop-blur-sm">
+          <div class="relative aspect-video overflow-hidden rounded-xl">
+            <video
+              class="size-full object-cover"
+              autoplay
+              muted
+              loop
+              playsinline
+              poster="/images/rider_waving_zoom.jpg"
+            >
+              <source src="/videos/hero-highlight.mp4" type="video/mp4" />
+            </video>
+            <!-- Play indicator overlay -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div class="rounded-full bg-white/20 backdrop-blur-sm p-3">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                  <polygon points="5,3 19,12 5,21" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="mt-3 text-center text-sm text-white/50">Last year's highlights</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Swapping stills - absolute positioned images that fade in/out */
+  .hero-still {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+  }
+  .hero-still--active {
+    opacity: 1;
+  }
+
+  /* Hide play indicator once video is playing */
+  video:not([paused]) + div {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+</style>
+
+<script>
+  // Swapping stills carousel
+  function initHeroStills() {
+    const container = document.getElementById('hero-stills');
+    if (!container) return;
+
+    const stills = container.querySelectorAll('.hero-still');
+    if (stills.length === 0) return;
+
+    let current = 0;
+    const total = stills.length;
+
+    setInterval(() => {
+      stills[current].classList.remove('hero-still--active');
+      current = (current + 1) % total;
+      stills[current].classList.add('hero-still--active');
+    }, 4000); // 4 seconds per image
+  }
+
+  initHeroStills();
+  document.addEventListener('astro:after-swap', initHeroStills);
+</script>

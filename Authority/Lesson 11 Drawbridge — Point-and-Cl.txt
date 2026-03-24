@@ -1,0 +1,105 @@
+Lesson 11: Drawbridge — Point-and-Click Refinement (Optional)
+
+
+
+
+0:00 / 10:46
+Everyone. Welcome to this lesson where I'm going to show
+Show transcript
+You've been describing visual changes in words. Drawbridge lets you click on your site and drop comments like Google Docs. Then Claude Code picks them up and applies the changes. It's the fastest way to iron out details before launch.
+
+What Is Drawbridge?
+👉 Drawbridge on Github
+
+Drawbridge is a free, open-source Chrome extension built by an indie developer. You install it, connect it to your project, and it turns your browser into an annotation tool. 
+
+Click an element, type what you want changed, and Claude Code processes the task automatically.
+
+
+
+Think of it as the "red pen" phase, similar to the Claude desktop app editing workflow, but inside VSCode. 
+
+You've already done the broad strokes with normal prompting. Drawbridge is for the fine details. 
+
+Spacing, colors, copy tweaks, transitions, small layout adjustments.
+
+The stuff that takes forever to describe in words but takes one second to point at.
+
+Installing Drawbridge
+Give Claude this prompt in your terminal:
+
+Clone the Drawbridge Chrome extension from GitHub (https://github.com/breschio/drawbridge) in the home folder at ~/drawbridge. Then tell me the exact path of the Chrome extension subfolder that I need to load into Chrome.
+Once cloned, load it into Chrome:
+
+Go to chrome://extensions in your browser
+
+Enable Developer Mode (toggle in the top right corner)
+
+Click Load Unpacked
+
+Navigate to ~/drawbridge/chrome-extension/ and select it
+
+Pin the extension to your toolbar so it's easy to access
+
+
+
+That's the full install. 
+
+No Chrome Web Store, no accounts, no fees.
+
+Connecting to Your Project
+Start your dev server (npm run dev) and open localhost in Chrome. Then:
+
+Click the Drawbridge extension icon in your toolbar
+
+Click "Disconnected" and select your project folder
+
+Click Allow when prompted
+
+
+
+Drawbridge is now watching your site. 
+
+Every annotation you make gets saved as a task file in your project directory.
+
+Using Drawbridge
+Two modes, both dead simple.
+
+Press C for comment mode. Click on any element on the page and type your feedback. "Make this heading darker." "Add more padding here." "This button should be green, not blue."
+
+
+
+
+Press R for rectangle mode. Draw a box around an area and describe what needs to change. "These boxes are too cramped. Give them more breathing room." "This whole section needs a background color to separate it from the content above."
+
+Queue as many annotations as you want. Five, ten, twenty. They all stack up.
+
+When you're ready, go to VS Code and type /bridge in Claude Code. 
+
+It picks up every annotation, processes them one by one, and checks each task as done. 
+
+You can keep adding annotations while Claude works. It picks them up live.
+
+
+
+Pro tip: If the /bridge command doesn't appear in Claude Code, reload the VS Code window. Press Cmd+Shift+P, type "Reload Window," and hit enter. The command should show up after that.
+
+A Real Example
+Here's what a typical Drawbridge session looks like in practice.
+
+You open your site, press C, and click on a pricing section. You type: "I want to use the same blue gradient plus grid background that we use on the VIP vault page to make the pricing boxes pop more."
+
+Then you click on an objection-handling section. "These objection boxes are a bit boring. Spice them up a bit."
+
+Then you notice the footer spacing is off on mobile. Draw a rectangle, type the fix. Queue three or four more small things you've been meaning to address.
+
+Switch to VS Code, type /bridge, and walk away. Come back in a few minutes and everything is done.
+
+When to Use What
+Use broad prompting in Claude Code for big layout changes. Adding sections, restructuring pages, swapping component patterns.
+
+Use Drawbridge for the detail pass. Fixing spacing, swapping colors, adjusting copy, smoothing transitions, polishing hover states. That's where it shines.
+
+Most sites need one or two Drawbridge sessions before they feel truly finished. The first pass catches the obvious stuff. The second pass catches what you missed the first time. After that, you're done.
+
+Drawbridge gives you precision editing in the browser. But if you want an even simpler workflow that wraps everything into one interface, the next lesson covers Conductor. It's a Mac app that puts Claude Code, GitHub flow, and your site preview into a single window.

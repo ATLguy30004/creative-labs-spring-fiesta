@@ -1,0 +1,153 @@
+---
+import IconArrowRight from "@tabler/icons/outline/arrow-right.svg";
+import type { HTMLAttributes } from "astro/types";
+import { tv } from "tailwind-variants";
+
+import { AspectRatio } from "@/components/starwind/aspect-ratio";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/starwind/avatar";
+import { Button } from "@/components/starwind/button";
+import { Image } from "@/components/starwind/image";
+
+export interface AvatarData {
+  src: string;
+  alt: string;
+  fallback: string;
+}
+
+export interface HeroImageData {
+  src: string;
+  alt: string;
+}
+
+interface Props extends HTMLAttributes<"section"> {
+  /** Main heading text */
+  heading?: string;
+  /** Description text */
+  description?: string;
+  /** Primary button text */
+  primaryButtonText?: string;
+  /** Primary button href */
+  primaryButtonHref?: string;
+  /** Secondary button text */
+  secondaryButtonText?: string;
+  /** Secondary button href */
+  secondaryButtonHref?: string;
+  /** Social proof heading */
+  socialProofHeading?: string;
+  /** Social proof subtext */
+  socialProofSubtext?: string;
+  /** Array of avatar data for social proof */
+  avatars?: AvatarData[];
+  /** Background image configuration */
+  backgroundImage?: HeroImageData;
+  /** Right-side showcase image configuration */
+  sideImage?: HeroImageData;
+}
+
+const hero15Styles = tv({
+  base: "@container w-full",
+});
+
+const {
+  heading = "Launch polished product experiences in days, not months",
+  description = "Combine conversion-ready sections, dependable styling primitives, and real-world defaults to ship landing pages your team can stand behind.",
+  primaryButtonText = "Start Building",
+  primaryButtonHref = "#",
+  secondaryButtonText,
+  secondaryButtonHref = "#",
+  socialProofHeading = "Trusted by 12,000+ teams",
+  socialProofSubtext = "From startups to global product orgs",
+  avatars = [],
+  backgroundImage = {
+    src: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1920&h=1080&fit=crop",
+    alt: "Mountain landscape at sunset",
+  },
+  sideImage = {
+    src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=960&h=720&fit=crop",
+    alt: "Developer workspace with code on screen",
+  },
+  class: className,
+  ...rest
+} = Astro.props;
+---
+
+<section class={hero15Styles({ class: className })} {...rest}>
+  <div
+    class="text-foreground dark relative isolate mx-auto min-h-[620px] w-full max-w-7xl overflow-hidden border-white/20 px-4 py-24 @3xl:rounded-3xl @3xl:border"
+  >
+    <div class="absolute inset-0 -z-30">
+      <Image
+        src={backgroundImage.src}
+        alt={backgroundImage.alt}
+        class="size-full object-cover"
+        loading="eager"
+      />
+    </div>
+    <div class="absolute inset-0 -z-20 bg-linear-to-r from-black/85 via-black/70 to-black/50"></div>
+    <div
+      class="from-primary-accent/20 absolute inset-0 -z-10 bg-linear-to-tr via-transparent to-transparent"
+    >
+    </div>
+
+    <div class="relative grid gap-10 @2xl:grid-cols-2 @2xl:items-center @3xl:gap-16">
+      <div class="max-w-2xl">
+        {
+          avatars.length > 0 && (
+            <div class="mb-8 flex items-center gap-4">
+              <div class="flex -space-x-3">
+                {avatars.map((avatar, idx) => (
+                  <Avatar class:list={[`z-[${2 * idx}]`]} variant="primary">
+                    <AvatarFallback>{avatar.fallback}</AvatarFallback>
+                    <AvatarImage src={avatar.src} alt={avatar.alt} class={`z-[${2 * idx + 1}]`} />
+                  </Avatar>
+                ))}
+              </div>
+              <div class="flex flex-col">
+                <div class="text-sm font-semibold text-white">{socialProofHeading}</div>
+                <div class="text-sm text-white/75">{socialProofSubtext}</div>
+              </div>
+            </div>
+          )
+        }
+
+        <h1
+          class="font-heading text-4xl font-semibold tracking-tight text-pretty text-white @xl:text-5xl @3xl:text-6xl"
+        >
+          {heading}
+        </h1>
+        <p class="mt-6 text-pretty text-white/85 @xl:text-lg">{description}</p>
+
+        <div class="mt-8 flex flex-col gap-4 @xl:flex-row">
+          <Button href={primaryButtonHref} variant="primary" class="w-full rounded-full @xl:w-auto">
+            {primaryButtonText}
+          </Button>
+          {
+            secondaryButtonText && (
+              <Button
+                variant="outline"
+                href={secondaryButtonHref}
+                class="group w-full rounded-full @xl:w-auto"
+              >
+                {secondaryButtonText}
+                <IconArrowRight class="transition-transform group-hover:translate-x-1" />
+              </Button>
+            )
+          }
+        </div>
+      </div>
+
+      <div class="w-full max-w-xl justify-self-end">
+        <div class="rounded-2xl border border-white/25 bg-white/10 p-2 shadow-2xl backdrop-blur-sm">
+          <AspectRatio ratio={4 / 3} class="overflow-hidden rounded-xl">
+            <Image
+              src={sideImage.src}
+              alt={sideImage.alt}
+              class="size-full object-cover"
+              loading="lazy"
+            />
+          </AspectRatio>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

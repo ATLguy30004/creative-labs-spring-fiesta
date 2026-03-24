@@ -1,0 +1,138 @@
+{
+  "project": "Creative Labs Spring Fiesta Invite",
+  "updated": "2026-03-24T18:00:00",
+  "phase": "EXECUTION — plan locked and approved",
+  "status": "Visual audit DONE. Plan LOCKED. Ready to execute. DO NOT re-audit or re-plan.",
+
+  "LOCKED_PLAN": ".claude/plans/modular-rolling-papert.md",
+  "LOCKED_PLAN_INSTRUCTIONS": "Read the plan file FIRST. It contains the FULL execution plan with appendix. Execute it exactly. No deviations. No re-planning. No re-auditing. Just build.",
+
+  "next_task": "EXECUTE THE LOCKED PLAN",
+  "next_task_steps": [
+    "1. Read .claude/plans/modular-rolling-papert.md — the LOCKED plan with full context appendix",
+    "2. Read .claude/skills/frontend-design/SKILL.md — invoke before each section",
+    "3. Start dev server: npm run dev -- --port 4322 --host",
+    "4. Install Starwind blocks: npx starwind@latest add @starwind-pro/hero-15",
+    "5. Install Starwind blocks: npx starwind@latest add @starwind-pro/services-07",
+    "6. REBUILD Hero.astro with Hero 15 (swapping stills left, text right, video card bottom-right)",
+    "7. CREATE PhotoStrip.astro with Services 7 (horizontal scroll event photos, after FoodActivities)",
+    "8. REFINE remaining sections top-to-bottom per plan",
+    "9. Global find/replace: Creative Labs Center → Creative Labs Learning Center",
+    "10. Remove all logos from all components",
+    "11. Screenshot every section 1440px + 375px",
+    "12. npm run build — clean build",
+    "13. Fahim reviews on phone"
+  ],
+
+  "chosen_direction": {
+    "number": 3,
+    "name": "Noche de Fiesta",
+    "page_file": "src/pages/direction-3-noche-de-fiesta.astro",
+    "components_dir": "src/components/direction-3/",
+    "components": [
+      "Nav.astro",
+      "Hero.astro",
+      "EventDetails.astro",
+      "FreeTickets.astro",
+      "FoodActivities.astro",
+      "LocationParking.astro",
+      "PartnerBanner.astro",
+      "Footer.astro"
+    ],
+    "palette": {
+      "primary": "#FFD024",
+      "secondary": "#71AF47",
+      "accent": "#FF2D6B",
+      "bg": "#0E0E0E",
+      "surface": "#1A1A1A",
+      "text": "#FFFFFF",
+      "muted": "#999999"
+    },
+    "fonts": {
+      "heading": "Raleway Variable",
+      "body": "Outfit Variable"
+    }
+  },
+
+  "dev_server": {
+    "command": "npm run dev -- --port 4322 --host",
+    "local_url": "http://localhost:4322",
+    "direction3_url": "http://localhost:4322/direction-3-noche-de-fiesta",
+    "known_issue": "Sections use .scroll-reveal (opacity:0). Run in console: document.querySelectorAll('.scroll-reveal').forEach(el => el.classList.add('revealed'));",
+    "launch_json_note": "launch.json uses node + node_modules/.bin/astro (Windows fix). preview_start may need Bash fallback."
+  },
+
+  "critical_rules": {
+    "correct_name": "Creative Labs Learning Center (NOT Creative Labs Center — wrong everywhere currently)",
+    "no_logos": "ZERO logos anywhere on the page — no SVG, no img, no logo references",
+    "no_overlays": "ZERO overlay patterns on photos — photos shown naturally",
+    "no_custom_code": "Everything from Starwind Pro blocks — no custom-built sections",
+    "photo_quality": "Every photo must be properly focused on people — no junk crops",
+    "reference_site": "tonyrobbins.com — match the split hero + horizontal scroll photo strip pattern",
+    "frontend_design_skill": "Invoke .claude/skills/frontend-design/SKILL.md before touching each section"
+  },
+
+  "starwind_pro": {
+    "initialized": true,
+    "license_key_in": ".env.local",
+    "already_installed": ["feature-15", "cta-06", "badge", "button", "card", "image"],
+    "to_install": ["hero-15", "services-07"],
+    "install_command": "npx starwind@latest add @starwind-pro/[block-name]"
+  },
+
+  "assets": {
+    "images_dir": "public/images/",
+    "images": [
+      "crowd_selfie_golden_hour.jpg",
+      "crowd_families_at_event.jpg",
+      "crowd_families.jpg",
+      "crowd_selfie.jpg",
+      "rider_action_zoom.jpg",
+      "rider_waving_zoom.jpg",
+      "rider_smiling_zoom.jpg",
+      "rider_waving.jpg",
+      "community_eating_together.jpg",
+      "squad_with_food.jpg",
+      "event_moment_01.jpg",
+      "event_moment_02.jpg",
+      "family_watching_bull.jpg",
+      "family_picnic_day.jpg",
+      "taco-toast.png",
+      "01_squad_clean.jpg",
+      "02_tornado_viral.jpg",
+      "03_trunk_clean.jpg"
+    ],
+    "optimized_images_dir": "src/assets/images/",
+    "optimized_images": ["community_eating_together.jpg", "rider_action_zoom.jpg", "squad_with_food.jpg"],
+    "video": "public/videos/hero-highlight.mp4",
+    "logos_DO_NOT_USE": ["public/logos/creative-labs-logo.png", "public/logos/eloteking-logo.png", "public/logos/elote-king-logo.png"]
+  },
+
+  "other_context_files": {
+    "refine_context": ".claude/refine-context.json",
+    "brief": ".new-site/brief.md",
+    "directions": ".new-site/directions.json"
+  },
+
+  "completed": [
+    "Direction 3 (Noche de Fiesta) selected",
+    "Starwind Pro initialized with license key",
+    "Feature 15 + CTA 6 installed (FoodActivities + PartnerBanner)",
+    "Hero video compiled (hero-highlight.mp4)",
+    "18 enhanced images + logos prepared in public/",
+    "Brand tokens mapped in src/styles/theme.css",
+    "Build passes clean",
+    "VISUAL AUDIT COMPLETED — all 8 sections at 1440px + 375px",
+    "PLAN LOCKED AND APPROVED by Fahim"
+  ],
+
+  "NOT_completed": [
+    "Install Hero 15 + Services 7 Starwind blocks",
+    "REBUILD Hero with Hero 15 (swapping stills + video card)",
+    "CREATE PhotoStrip with Services 7 (horizontal scroll photos)",
+    "REFINE all other sections per plan",
+    "Global name fix: Creative Labs Center → Creative Labs Learning Center",
+    "Remove all logos from all components",
+    "Final screenshots + build + phone review"
+  ]
+}

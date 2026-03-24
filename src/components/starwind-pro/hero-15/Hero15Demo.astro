@@ -1,0 +1,46 @@
+---
+import Hero15, { type AvatarData } from "./Hero15.astro";
+
+const avatars: AvatarData[] = [
+  {
+    src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
+    alt: "Product lead",
+    fallback: "PL",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
+    alt: "Design lead",
+    fallback: "DL",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
+    alt: "Engineering manager",
+    fallback: "EM",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
+    alt: "Growth strategist",
+    fallback: "GS",
+  },
+];
+---
+
+<Hero15
+  heading="Turn ideas into launch-ready experiences faster"
+  description="Ship responsive, accessible sections with polished defaults. Your team spends less time rebuilding UI and more time improving product outcomes."
+  primaryButtonText="Get Started Free"
+  primaryButtonHref="#"
+  secondaryButtonText="View Components"
+  secondaryButtonHref="#"
+  socialProofHeading="Trusted by 12,000+ teams"
+  socialProofSubtext="Across SaaS, eCommerce, and developer tools"
+  avatars={avatars}
+  backgroundImage={{
+    src: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1920&h=1080&fit=crop",
+    alt: "Dramatic mountain landscape",
+  }}
+  sideImage={{
+    src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=960&h=720&fit=crop",
+    alt: "Team collaborating around product dashboards",
+  }}
+/>

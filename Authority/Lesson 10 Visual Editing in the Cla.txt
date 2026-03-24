@@ -1,0 +1,87 @@
+Lesson 10: Visual Editing in the Claude Desktop App
+
+
+
+
+0:00 / 10:26
+Everyone! Welcome to this video. So now you should be
+Show transcript
+VS Code is great for broad changes. But sometimes you want to point at a specific element on the page and say "fix this." 
+
+The Claude Desktop App gives you a visual editing workflow where you click on things, take screenshots, and tell Claude exactly what to change.
+
+When to Use This
+Use the Desktop App when you need precision. You can see your site in a preview panel, click on elements, and describe changes while looking at the actual page. 
+
+It's the difference between saying "the hero image is misaligned on mobile" in a text chat versus clicking on the hero image and saying "move this below the heading on mobile."
+
+VS Code chat handles big structural work. This handles visual refinement.
+
+Setup
+Open the Claude Desktop App (the standalone app, not the browser version at claude.ai). Then connect it to your project:
+
+Go to Settings then Connectors and connect your GitHub account
+
+
+
+Create a new session
+
+Select your project folder
+
+Choose your branch (or create a worktree for safety)
+
+Select the Opus model
+
+Type "start the preview server" as your first message
+
+
+
+You can bypass permissions if you want hands-free operation. That's up to you. The app will ask before doing anything destructive either way.
+
+The Workflow
+Once the preview server is running, your site appears in a panel on the right. Chat panel is on the left. This is your cockpit.
+
+Click the Select Element tool to enter targeting mode. Click any element on the preview. It gets highlighted and added to the chat context. Now type what you want changed.
+
+Claude makes the edit, takes a screenshot at both desktop and mobile widths, and shows you the result. You verify visually, right there in the app. No switching between browser tabs and VS Code.
+
+
+
+togle click to select on
+
+click on the page for the element you want to edit
+
+write your prompt and send
+
+commit changes when you're done.
+
+
+Here are the kinds of edits this works well for:
+
+Moving a hero image below the heading on mobile only
+
+Fixing a background that doesn't extend properly behind a section
+
+Adjusting padding or spacing on specific elements
+
+Swapping colors on a single component
+
+Fixing layout issues that only appear at certain screen widths
+
+Each edit follows the same loop. Click the element. Describe the change. Claude edits, screenshots, and verifies. You confirm or adjust.
+
+Committing Changes
+When you're happy with a round of edits, click the Changes button in the app. Claude creates a PR through the terminal. Cloudflare auto-deploys the branch so you get a preview URL.
+
+Check the preview. If everything looks good, merge the PR on GitHub. Your changes go live.
+
+If you go back to VSCode after that, make sure to sync back the github changes from your main Branch to avoid working on an outdated version of your site.
+
+Limitations
+The Desktop App doesn't let you clear the conversation. When the context fills up, you need to start a new session but it's a lot less of an issue with the 1m context window. 
+
+That still means you should merge and start fresh regularly rather than trying to do everything in one marathon session.
+
+Plan your editing in batches. Do a round of changes, merge, start a new session. This keeps the context clean and Claude's responses sharp.
+
+Your site is getting polished. But there's an even faster way to annotate visual changes. Next lesson covers Drawbridge, a Chrome extension that lets you drop comments directly on your page like a Google Doc.

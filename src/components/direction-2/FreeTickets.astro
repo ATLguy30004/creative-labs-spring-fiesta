@@ -1,0 +1,312 @@
+---
+/**
+ * Free Tickets — Warm, celebratory section.
+ * Each enrolled student gets 2 FREE tickets: Popsicle OR Mechanical Bull ride.
+ * Accent background (mango/peach warmth), botanical SVG underlines.
+ */
+---
+
+<section class="free-tickets scroll-reveal" aria-label="Free tickets for enrolled students">
+  <!-- Wave top divider -->
+  <div class="tickets-wave tickets-wave--top" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+      <path d="M0,0 L1440,0 L1440,30 C1200,60 960,10 720,40 C480,70 240,20 0,50 Z" fill="var(--color-brand-bg)"/>
+    </svg>
+  </div>
+
+  <div class="tickets-container">
+    <!-- Floating botanical -->
+    <svg class="tickets-botanical" width="80" height="120" viewBox="0 0 80 120" fill="none" aria-hidden="true">
+      <path d="M40 115 C40 115 40 60 40 10" stroke="white" stroke-width="1.5" opacity="0.2"/>
+      <path d="M40 10 C25 0 10 5 8 15 C6 25 20 30 40 25" fill="white" opacity="0.1"/>
+      <path d="M40 35 C55 25 70 30 72 40 C74 50 58 55 40 48" fill="white" opacity="0.08"/>
+      <path d="M40 60 C25 50 12 55 10 65 C8 75 22 80 40 72" fill="white" opacity="0.06"/>
+    </svg>
+
+    <p class="section-eyebrow">For Our Creative Labs Families</p>
+    <h2 class="section-heading">
+      Your Kids Get
+      <span class="heading-highlight">
+        2 Free Tickets
+        <svg class="heading-underline" viewBox="0 0 240 16" fill="none" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 10 C60 2, 120 14, 180 6 C200 3, 220 8, 240 5" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.4"/>
+        </svg>
+      </span>
+    </h2>
+    <p class="tickets-description">
+      Every enrolled Creative Labs student receives <strong>2 complimentary tickets</strong> to use at the Spring Fiesta — because this party is all about celebrating <em>your</em> family.
+    </p>
+
+    <div class="tickets-options">
+      <!-- Popsicle ticket -->
+      <div class="ticket-card">
+        <div class="ticket-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <!-- Popsicle shape -->
+            <rect x="14" y="6" width="20" height="26" rx="10" fill="var(--color-brand-accent)" opacity="0.9"/>
+            <rect x="14" y="6" width="20" height="26" rx="10" stroke="white" stroke-width="1.5" opacity="0.3"/>
+            <rect x="22" y="32" width="4" height="12" rx="1" fill="var(--color-brand-secondary)"/>
+            <!-- Highlight -->
+            <path d="M20 12 C20 10 22 9 24 10" stroke="white" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="ticket-label">A Refreshing Popsicle</h3>
+        <p class="ticket-note">Cool, sweet, and perfect for a spring evening</p>
+        <div class="ticket-badge">FREE</div>
+      </div>
+
+      <div class="ticket-divider" aria-hidden="true">
+        <span class="divider-text">or</span>
+      </div>
+
+      <!-- Bull ride ticket -->
+      <div class="ticket-card">
+        <div class="ticket-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <!-- Simplified bull head -->
+            <circle cx="24" cy="24" r="14" fill="var(--color-brand-primary)" opacity="0.8"/>
+            <circle cx="24" cy="24" r="14" stroke="white" stroke-width="1.5" opacity="0.3"/>
+            <!-- Horns -->
+            <path d="M12 18 C8 12 6 10 4 12" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+            <path d="M36 18 C40 12 42 10 44 12" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+            <!-- Eyes -->
+            <circle cx="20" cy="22" r="2" fill="white" opacity="0.8"/>
+            <circle cx="28" cy="22" r="2" fill="white" opacity="0.8"/>
+            <!-- Nose ring -->
+            <path d="M21 28 C22 31 26 31 27 28" stroke="white" stroke-width="1.5" fill="none" opacity="0.6"/>
+          </svg>
+        </div>
+        <h3 class="ticket-label">A Mechanical Bull Ride</h3>
+        <p class="ticket-note">Hold on tight — giggles guaranteed!</p>
+        <div class="ticket-badge">FREE</div>
+      </div>
+    </div>
+
+    <p class="tickets-fine-print">
+      Tickets are redeemable at the Elote King booth on event night. One set per enrolled student.
+    </p>
+  </div>
+
+  <!-- Wave bottom divider -->
+  <div class="tickets-wave tickets-wave--bottom" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+      <path d="M0,30 C240,0 480,50 720,20 C960,-10 1200,40 1440,10 L1440,60 L0,60 Z" fill="white"/>
+    </svg>
+  </div>
+</section>
+
+<style>
+  .free-tickets {
+    position: relative;
+    background: linear-gradient(165deg, var(--color-brand-accent) 0%, #f5874a 50%, var(--color-brand-secondary) 100%);
+    padding: clamp(5rem, 10vw, 8rem) 1.5rem;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .tickets-wave {
+    position: absolute;
+    left: 0;
+    right: 0;
+    line-height: 0;
+    pointer-events: none;
+  }
+
+  .tickets-wave--top {
+    top: -1px;
+  }
+
+  .tickets-wave--bottom {
+    bottom: -1px;
+  }
+
+  .tickets-wave svg {
+    width: 100%;
+    height: 40px;
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    .tickets-wave svg {
+      height: 60px;
+    }
+  }
+
+  .tickets-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .tickets-botanical {
+    position: absolute;
+    top: -40px;
+    right: -20px;
+    pointer-events: none;
+  }
+
+  @media (max-width: 639px) {
+    .tickets-botanical {
+      display: none;
+    }
+  }
+
+  .section-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 0 1.25rem 0;
+    color: white;
+  }
+
+  .heading-highlight {
+    position: relative;
+    display: inline-block;
+    font-style: italic;
+  }
+
+  .heading-underline {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 16px;
+  }
+
+  .tickets-description {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 580px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .tickets-description strong {
+    color: white;
+    font-weight: 700;
+  }
+
+  .tickets-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .tickets-options {
+      flex-direction: row;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+  }
+
+  .ticket-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem 1.75rem 1.75rem;
+    flex: 1;
+    max-width: 280px;
+    width: 100%;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                background 0.3s ease;
+    position: relative;
+  }
+
+  .ticket-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    background: rgba(255, 255, 255, 0.22);
+  }
+
+  .ticket-icon {
+    margin-bottom: 1rem;
+  }
+
+  .ticket-label {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+    margin: 0 0 0.4rem 0;
+  }
+
+  .ticket-note {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .ticket-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--color-brand-secondary);
+    color: var(--color-brand-text);
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    padding: 0.3rem 0.65rem;
+    border-radius: 100px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .ticket-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .divider-text {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  @media (min-width: 640px) {
+    .ticket-divider {
+      flex-direction: column;
+    }
+  }
+
+  .tickets-fine-print {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* Scroll reveal */
+  .free-tickets {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .free-tickets.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

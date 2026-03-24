@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/direction-2/Nav.astro';
+import Hero from '../components/direction-2/Hero.astro';
+import EventDetails from '../components/direction-2/EventDetails.astro';
+import FreeTickets from '../components/direction-2/FreeTickets.astro';
+import FoodActivities from '../components/direction-2/FoodActivities.astro';
+import LocationParking from '../components/direction-2/LocationParking.astro';
+import PartnerBanner from '../components/direction-2/PartnerBanner.astro';
+import Footer from '../components/direction-2/Footer.astro';
+---
+
+<Layout title="Spring Garden Party — Creative Labs Spring Fiesta" description="Join Creative Labs Center for the Spring Fiesta on Saturday, March 28, 7–11 PM. Food by Elote King Atlanta, mechanical bull rides, free popsicles for enrolled students. Alpharetta, GA.">
+  <style is:global>
+    :root {
+      --color-brand-primary:   #71AF47;
+      --color-brand-secondary: #FFD024;
+      --color-brand-accent:    #FF9E4F;
+      --color-brand-bg:        #F4FFF0;
+      --color-brand-surface:   #E8FAE0;
+      --color-brand-text:      #1E3A1E;
+      --color-brand-muted:     #5C7A5C;
+      --font-heading: 'Fraunces Variable', 'Fraunces', Georgia, serif;
+      --font-body:    'DM Sans Variable', 'DM Sans', system-ui, sans-serif;
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Selection color — spring green */
+    ::selection {
+      background: rgba(113, 175, 71, 0.2);
+      color: var(--color-brand-text);
+    }
+  </style>
+
+  <Nav />
+  <Hero />
+  <EventDetails />
+  <FreeTickets />
+  <FoodActivities />
+  <LocationParking />
+  <PartnerBanner />
+  <Footer />
+
+  <!-- Global scroll-reveal observer -->
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -30px 0px',
+      }
+    );
+
+    document.querySelectorAll('.scroll-reveal').forEach((el) => {
+      observer.observe(el);
+    });
+  </script>
+</Layout>

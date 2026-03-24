@@ -1,0 +1,268 @@
+---
+/**
+ * PhotoStrip — NEW section based on Starwind Pro Services 7 (Horizontal Scroll).
+ * Uses native <img> tags because Astro Image can't handle /public/ paths.
+ * Tall portrait photo cards in a horizontal scrollable row.
+ * Cards bleed off right edge. Real event photos with captions.
+ */
+
+const photos = [
+  { image: "/images/rider_waving_zoom.jpg", title: "The Bull Ride", tagline: "The moment everyone talks about" },
+  { image: "/images/crowd_selfie_golden_hour.jpg", title: "Golden Hour Vibes", tagline: "Community comes together" },
+  { image: "/images/squad_with_food.jpg", title: "Elote King Fuel", tagline: "Authentic street food all night" },
+  { image: "/images/family_watching_bull.jpg", title: "Family Night Out", tagline: "Kids and adults — everyone belongs" },
+  { image: "/images/rider_smiling_zoom.jpg", title: "Hold On Tight", tagline: "Free ride with your student ticket" },
+  { image: "/images/02_tornado_viral.jpg", title: "The Famous Tornado Potato", tagline: "Elote King's signature move" },
+  { image: "/images/event_moment_02.jpg", title: "Making Memories", tagline: "A night the whole family remembers" },
+  { image: "/images/03_trunk_clean.jpg", title: "Late Night Eats", tagline: "The party doesn't stop at 11" },
+];
+---
+
+<section class="photo-strip-section scroll-reveal">
+  <!-- Header -->
+  <div class="strip-header">
+    <div class="strip-header-content">
+      <span class="strip-badge">Event Moments</span>
+      <h2 class="strip-heading">The Energy Is Real</h2>
+      <p class="strip-description">Families, food, and a mechanical bull — this is what the Spring Fiesta is all about.</p>
+    </div>
+  </div>
+
+  <!-- Scrolling Cards -->
+  <div class="strip-scroll-area">
+    <div class="strip-scroll-container" id="photo-strip-scroll">
+      {photos.map((photo, index) => (
+        <div class="strip-card" style={`--index: ${index}`}>
+          <img
+            src={photo.image}
+            alt={photo.title}
+            class="strip-card-img"
+            loading="lazy"
+          />
+          <div class="strip-card-overlay"></div>
+          <div class="strip-card-content">
+            <p class="strip-card-tagline">{photo.tagline}</p>
+            <h3 class="strip-card-title">{photo.title}</h3>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Navigation buttons -->
+    <button
+      id="photo-strip-prev"
+      type="button"
+      aria-label="Previous photos"
+      class="strip-nav-btn strip-nav-btn--prev"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button
+      id="photo-strip-next"
+      type="button"
+      aria-label="Next photos"
+      class="strip-nav-btn strip-nav-btn--next"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+</section>
+
+<style>
+  @reference "../../styles/global.css";
+
+  .photo-strip-section {
+    background: var(--color-brand-bg);
+    padding: 6rem 0;
+  }
+
+  /* Header */
+  .strip-header {
+    max-width: 1280px;
+    margin: 0 auto 3rem;
+    padding: 0 1.5rem;
+  }
+
+  .strip-header-content {
+    max-width: 640px;
+  }
+
+  .strip-badge {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-brand-primary);
+  }
+
+  .strip-heading {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--color-brand-text);
+    margin: 0.75rem 0 0;
+    letter-spacing: -0.02em;
+  }
+
+  .strip-description {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: var(--color-brand-muted);
+    margin: 1rem 0 0;
+    line-height: 1.6;
+  }
+
+  /* Scroll area */
+  .strip-scroll-area {
+    position: relative;
+  }
+
+  .strip-scroll-container {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 0 1.5rem 1rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .strip-scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Cards */
+  .strip-card {
+    position: relative;
+    flex-shrink: 0;
+    width: 320px;
+    aspect-ratio: 3/4;
+    border-radius: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .strip-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+  }
+
+  .strip-card:hover .strip-card-img {
+    transform: scale(1.08);
+  }
+
+  .strip-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 40%, transparent 100%);
+  }
+
+  .strip-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+  }
+
+  .strip-card-tagline {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+  }
+
+  .strip-card-title {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: white;
+    margin: 0.5rem 0 0;
+    letter-spacing: -0.01em;
+  }
+
+  /* Navigation buttons */
+  .strip-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(14, 14, 14, 0.8);
+    color: var(--color-brand-text);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+  }
+
+  .strip-nav-btn:hover {
+    background: rgba(14, 14, 14, 0.95);
+    border-color: var(--color-brand-primary);
+    box-shadow: 0 0 20px rgba(255, 208, 36, 0.15);
+  }
+
+  .strip-nav-btn--prev { left: 1rem; }
+  .strip-nav-btn--next { right: 1rem; }
+
+  @media (min-width: 768px) {
+    .strip-nav-btn {
+      display: flex;
+    }
+
+    .strip-card {
+      width: 360px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .strip-card {
+      width: 400px;
+    }
+  }
+
+  /* Scroll reveal */
+  .photo-strip-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .photo-strip-section.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  function initPhotoStripNav() {
+    const container = document.getElementById('photo-strip-scroll');
+    const prevBtn = document.getElementById('photo-strip-prev');
+    const nextBtn = document.getElementById('photo-strip-next');
+    if (!container || !prevBtn || !nextBtn) return;
+
+    const getScrollAmount = () => {
+      const firstCard = container.querySelector('.strip-card');
+      if (!firstCard) return 380;
+      return firstCard.offsetWidth + 24; // card width + gap
+    };
+
+    prevBtn.addEventListener('click', () => {
+      container.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      container.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+    });
+  }
+
+  initPhotoStripNav();
+  document.addEventListener('astro:after-swap', initPhotoStripNav);
+</script>

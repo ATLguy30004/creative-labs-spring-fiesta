@@ -1,0 +1,85 @@
+Lesson 14 of 15
+Lesson 14: SEO Setup
+
+
+
+
+8:18 / 13:57
+Everyone. Welcome to this video where we're going to talk
+Show transcript
+Your site is live, your forms work, but Google doesn't know you exist yet. No sitemap, no meta descriptions, no schema markup. Search engines are guessing what your site is about, and they're probably guessing wrong.
+
+This lesson installs all the SEO fundamentals using free Astro integrations. No paid plugins, no monthly fees. Just solid defaults that you manage by talking to Claude.
+
+Before You Start
+Your site needs to be live, even on a dev URL. Sitemaps and robots.txt depend on having an actual URL to reference. If you haven't deployed yet, do Lesson 10 first.
+
+Also, create a new branch for this work. Call it something like seo.
+
+Step 1: Set Your Site URL
+Your Astro config still has the placeholder URL from development. Let's fix that.
+
+I put my site live. This is the URL: [YOUR URL]. Update what needs to be updated in the settings.
+Claude updates your Astro config with the production URL. This is the base URL that sitemaps, canonical tags, and Open Graph URLs all reference.
+
+Optional follow-up worth asking: "Now that I'm live, is there anything else we should update or change that was only used in development?" Claude will catch things you forgot about.
+
+Step 2: Sitemap
+Go to Astro Integrations and search for sitemap. Grab the link to the official integration docs (I used this one) , then tell Claude:
+
+Help me set up my sitemap. Here's the guide: https://docs.astro.build/en/guides/integrations-guide/sitemap/
+Claude installs the package and adds it to your Astro config. Your sitemap generates automatically at /sitemap-index.xml. Every page on your site, listed and ready for Google.
+
+Step 3: Robots.txt
+Back on the integrations page, search for robots.txt. Same drill:
+
+I don't have a robots.txt yet. Let's set it up. Use this: https://github.com/alextim/astro-lib/tree/main/packages/astro-robots-txt#readme
+Claude installs it. The default config allows all crawlers and automatically includes a reference to your sitemap. Unless you have pages you specifically want to hide from search engines, the defaults are exactly what you want.
+
+Step 4: SEO Component
+Search for SEO on the integrations page. Look for the one with 236k+ downloads. Give Claude the link:
+
+Let's also set up the SEO integration with this: https://github.com/jonasmerlin/astro-seo#readme
+Claude installs it and adds the SEO component to all your page layouts. This single integration gives you title tags, meta descriptions, canonical URLs, Open Graph tags, Twitter cards, and no-index support. All configurable per page.
+
+Test it immediately. Tell Claude to change the homepage title to something specific and verify the browser tab updates.
+
+Then run this follow-up:
+
+Document the SEO plugin in your docs and how to use it. Link to the docs from CLAUDE.md.
+This is important. Once the SEO component is documented in CLAUDE.md, Claude will know how to use it in every future conversation. You'll never need to explain the setup again.
+
+Step 5: Schema Markup
+Search for schema on the integrations page. Find astro-seo-schema.
+
+Let's also do custom schema markup using this plugin. Install it, test it, then update the docs: https://github.com/codiume/orbit/tree/main/packages/astro-seo-schema
+Claude adds structured data automatically. LocalBusiness schema, Website schema on the homepage, Service and FAQ schema on service pages. Google uses this to understand what your business is, where it's located, and what you offer. Rich results in search start here.
+
+The Deploy Dance
+Commit your SEO branch, publish it, and create a PR. Here's the honest truth: Cloudflare will probably fail the first build. That's normal.
+
+Copy the error logs from Cloudflare, paste them into Claude, let it fix the issue, commit again, and wait for Cloudflare to retry. You might do this two or three times.
+
+Real talk: I had to go back and forth a bit with deployment errors on this one. That's just what happens when you add multiple integrations at once. The point is that Cloudflare gives you detailed error logs, and those logs give Claude amazing context to work with. Each fix takes about 30 seconds.
+
+Pro tip: If Claude gets stuck on deployment errors, remind it: "I'm on Cloudflare Workers, not Pages." This distinction matters for the build configuration and it's an easy thing for Claude to mix up.
+
+Once the preview looks good, merge the PR, delete the branch, and sync your local repo.
+
+Verify the basics: check your live site's title tag, visit /sitemap-index.xml, and confirm your pages are listed.
+
+Resources
+Astro Integrations directory: https://astro.build/integrations/
+
+Search sitemap for the official sitemap integration
+
+Search robots for the robots.txt integration
+
+Search seo for the SEO component (236k+ downloads)
+
+Search schema for the astro-seo-schema integration
+
+What You Just Unlocked
+From this point forward, you manage all your SEO by talking to Claude. Change title tags, add meta descriptions, adjust schema markup, exclude pages from indexing. All through natural language. No plugin dashboards, no settings pages, no monthly fees.
+
+Next lesson, we look at day-to-day maintenance. How to keep your site updated without breaking things.

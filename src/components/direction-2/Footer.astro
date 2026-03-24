@@ -1,0 +1,191 @@
+---
+/**
+ * Footer — Creative Labs branding, warm and botanical.
+ * Organic wave top, scattered leaf SVGs, soft green tones.
+ */
+---
+
+<footer class="footer" aria-label="Footer">
+  <!-- Wave top -->
+  <div class="footer-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,40 C240,80 480,10 720,50 C960,90 1200,20 1440,60 L1440,80 L0,80 Z" fill="var(--color-brand-text)"/>
+    </svg>
+  </div>
+
+  <div class="footer-container">
+    <!-- Botanical decorations -->
+    <div class="footer-botanicals" aria-hidden="true">
+      <svg class="footer-leaf footer-leaf--1" width="30" height="45" viewBox="0 0 30 45" fill="none">
+        <path d="M15 42 C15 42 3 22 15 2 C27 22 15 42 15 42Z" fill="white" opacity="0.05"/>
+        <path d="M15 2 C15 2 15 22 15 42" stroke="white" stroke-width="0.5" opacity="0.08"/>
+      </svg>
+      <svg class="footer-leaf footer-leaf--2" width="24" height="36" viewBox="0 0 24 36" fill="none">
+        <path d="M12 34 C12 34 2 18 12 2 C22 18 12 34 12 34Z" fill="white" opacity="0.04"/>
+        <path d="M12 2 C12 2 12 18 12 34" stroke="white" stroke-width="0.5" opacity="0.06"/>
+      </svg>
+      <svg class="footer-leaf footer-leaf--3" width="26" height="40" viewBox="0 0 26 40" fill="none">
+        <path d="M13 38 C13 38 2 20 13 2 C24 20 13 38 13 38Z" fill="var(--color-brand-primary)" opacity="0.08"/>
+        <path d="M13 2 C13 2 13 20 13 38" stroke="var(--color-brand-primary)" stroke-width="0.5" opacity="0.12"/>
+      </svg>
+    </div>
+
+    <div class="footer-content">
+      <!-- Logo / brand -->
+      <div class="footer-brand">
+        <svg class="footer-logo-leaf" width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M8 28C8 28 6 16 16 8C26 16 24 28 24 28" fill="var(--color-brand-primary)" opacity="0.5"/>
+          <path d="M16 8C16 8 12 18 16 28" stroke="var(--color-brand-primary)" stroke-width="1.5" fill="none"/>
+        </svg>
+        <span class="footer-brand-name">Creative Labs Center</span>
+      </div>
+
+      <p class="footer-tagline">
+        Where little minds grow and big celebrations happen.
+      </p>
+
+      <!-- Event reminder -->
+      <div class="footer-event">
+        <p class="footer-event-text">
+          <strong>Spring Fiesta</strong> — Saturday, March 28 · 7 PM – 11 PM
+        </p>
+        <p class="footer-event-address">
+          6180 Atlanta Highway, Alpharetta, GA 30004
+        </p>
+      </div>
+
+      <!-- Botanical divider -->
+      <svg class="footer-divider" width="80" height="12" viewBox="0 0 80 12" fill="none" aria-hidden="true">
+        <path d="M0 6 C13 2, 27 10, 40 6 C53 2, 67 10, 80 6" stroke="var(--color-brand-primary)" stroke-width="1" fill="none" opacity="0.3" stroke-linecap="round"/>
+      </svg>
+
+      <p class="footer-copy">
+        &copy; 2026 Creative Labs Center. Made with love in Alpharetta, GA.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    position: relative;
+    background: var(--color-brand-text);
+    color: rgba(255, 255, 255, 0.7);
+    padding: clamp(4rem, 8vw, 6rem) 1.5rem 2.5rem;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .footer-wave {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    line-height: 0;
+    transform: translateY(-99%);
+    pointer-events: none;
+  }
+
+  .footer-wave svg {
+    width: 100%;
+    height: 50px;
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    .footer-wave svg {
+      height: 80px;
+    }
+  }
+
+  .footer-botanicals {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .footer-leaf {
+    position: absolute;
+    animation: leaf-sway 7s ease-in-out infinite;
+  }
+
+  .footer-leaf--1 { top: 15%; left: 8%; animation-delay: 0s; }
+  .footer-leaf--2 { top: 30%; right: 12%; animation-delay: -2.5s; }
+  .footer-leaf--3 { bottom: 20%; left: 15%; animation-delay: -5s; }
+
+  @keyframes leaf-sway {
+    0%, 100% { transform: rotate(0deg) translateY(0); }
+    33% { transform: rotate(5deg) translateY(-4px); }
+    66% { transform: rotate(-3deg) translateY(2px); }
+  }
+
+  .footer-container {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-brand-name {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+  }
+
+  .footer-tagline {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+    margin: 0 0 2rem 0;
+    line-height: 1.5;
+  }
+
+  .footer-event {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-event-text {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 0.25rem 0;
+  }
+
+  .footer-event-text strong {
+    font-family: var(--font-heading);
+    color: var(--color-brand-secondary);
+    font-weight: 600;
+  }
+
+  .footer-event-address {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+  }
+
+  .footer-divider {
+    display: block;
+    margin: 0 auto 1rem;
+  }
+
+  .footer-copy {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.3);
+    margin: 0;
+  }
+</style>

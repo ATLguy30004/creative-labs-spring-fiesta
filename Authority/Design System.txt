@@ -1,0 +1,227 @@
+Right now, Claude has no memory of your design decisions. Start a new session, ask it to build an About page, and it'll invent its own colors, fonts, and button styles. 
+
+Every new page becomes a negotiation you've already had. 
+
+Two prompts fix this permanently.
+
+The Problem
+
+Your homepage looks great. But the project is messy underneath. You've got leftover concept files, hardcoded values, and components that only work on one page. 
+
+If you start building your About page or Services page right now, nothing will match.
+
+We need to do two things: 
+
+
+
+
+
+clean up the code so components are reusable
+
+
+
+document every design decision so Claude can read and follow them automatically.
+
+Prompt A: Cleanup and Restructure
+
+Before running this, commit your current state in VS Code. You're about to make significant changes and you want a save point.
+
+Make sure the frontend design skill is loaded (/frontend-design), then paste this prompt:
+
+I'm going with **direction [X]** as my final homepage. Based on my feedback above, restructure the project:
+
+---
+
+## 0. Clean up — lock in the chosen direction
+
+- Remove all other direction pages from `src/pages/` (keep only the chosen one, rename it to `index.astro` if it isn't already)
+- Move the chosen direction's components up from their subfolder into `src/components/` directly (e.g. from `src/components/direction-5/` to `src/components/`)
+- Remove all leftover prototype files, other direction folders, and empty directories
+- Update all imports in `index.astro` to reflect the new component paths
+- The project should look like it was always a single-direction project — no traces of the exploration phase
+- **Apply the chosen direction's palette and fonts to the theme:**
+  - Read the chosen direction's `palette` and `fonts` from `.new-site/directions.json`
+  - Update `src/styles/theme.css`: replace all color and font values in the `@theme` block with the chosen direction's values. Switch `@theme` to `@theme static` (bakes values directly into utility classes — no CSS variable overhead now that there's only one palette)
+  - Use descriptive brand names for color tokens (e.g. `walnut`, `charcoal`, `cream`) not generic ones (e.g. `gray-500`)
+- **Clean up fonts:**
+  - Update `src/styles/global.css`: remove `@import` lines for font packages that belong to unchosen directions. Keep only the chosen direction's heading and body font imports
+  - Run `npm uninstall @fontsource-variable/[each-unused-font-package]` to remove unused packages from node_modules and package.json
+- **Remove direction-level overrides:**
+  - Remove the `<style is:global>` block from `index.astro` that was overriding theme CSS custom properties — it's now redundant since theme.css contains the final values
+  - Remove any direction-specific font `import` statements from the page frontmatter (fonts are now imported in `global.css`)
+- **Clean up prototype artifacts:**
+  - Remove `prototypes/index.html` (the hub page)
+  - Remove `.new-site/directions.json` (no longer needed — palette/fonts are now in theme.css)
+  - Remove `.new-site/state.json`
+
+---
+
+## 1. Production-harden the code
+
+The prototypes were built for visual impact, not production readiness. Clean up the technical debt while keeping the design identical:
+
+**Images:**
+- Replace all `<img>` tags for content images with Astro's `<Image>` component (from `astro:assets`). Import local images from `src/assets/images/`, use `<Image>` with explicit `width`, `height`, and `quality={80}`.
+- Move any content images from `public/images/` to `src/assets/images/` and update imports.
+- The hero image (above the fold) must have `loading="eager"`, `fetchpriority="high"`, and `decoding="sync"`. All other images use `loading="lazy"`.
+- For any image that spans responsive breakpoints, add `widths` (1x and 2x array) and `sizes` props.
+
+**Performance:**
+- If any `<style>` blocks use `@apply` with brand tokens but are missing `@reference`, add it: `@reference "../../styles/global.css";` (adjust relative path as needed).
+- Check for `will-change` in CSS — if it's applied broadly to many elements at load (e.g. on all `[data-reveal]` elements), remove it from the base CSS. It should only be added temporarily via JS right before animation.
+- Add `content-visibility: auto` with `contain-intrinsic-size: auto 600px` to heavy below-fold sections (not the hero, not sticky elements, not anchor targets).
+- Verify fonts are self-hosted via `@fontsource` packages in `global.css` — no Google Fonts `<link>` tags in the Layout or any component.
+
+**Tokens:**
+- Any hard-coded hex values, font names, or one-off color values in components should be moved to the `@theme` block in `global.css` as named tokens, then referenced via Tailwind classes.
+
+---
+
+## 2. Make components reusable
+
+The homepage already has components for each section. Review each one in `src/components/` and make them reusable across pages:
+- Add props for any content that's currently hard-coded (headings, body text, button labels, image URLs) so the same component can be used with different content on different pages
+- Use sensible defaults for props where possible — the component should still render the current homepage content if no props are passed
+- Extract any small reusable atoms that are currently inline: buttons, cards, section headings, badges. Each gets its own file in `src/components/` with PascalCase naming.
+- Make sure all components use Tailwind token classes from `@theme` — no hard-coded hex values or font names
+
+---
+
+## 3. Verify everything works
+
+After all changes:
+1. Run `npm run dev` and open `localhost:4321` — the homepage must look identical to before
+2. Run `npm run lint:fix` then `npm run lint` — fix any errors
+3. Run `npm run build` — confirm the project builds without errors
+
+Do not report done until all three checks pass.
+
+Replace [X] with the number of your chosen direction.
+
+Once this finishes, check your homepage in the browser. It should look exactly the same as before. If something's off, this is where Git saves you. 
+
+Click the discard arrow in Source Control and try the prompt again with more specific feedback.
+
+Honest aside: Something usually goes a little sideways here. A missing nav bar, a font that didn't carry over, a section that shifted. That's normal. Vibe it back into shape with the frontend design skill loaded. Small fixes, not big rewrites.
+
+If everything looks good, commit again. Label it something like "Direction locked, components restructured."
+
+Prompt B: Documentation and Inventory
+
+Now the powerful part. This prompt creates three things that change how Claude works on your project going forward.
+
+The project is cleaned up and the homepage is refactored into components. Now create the documentation and inventory. Do everything below in one go:
+
+---
+
+## 1. Create `docs/brand-guide.md`
+
+Create a `docs/` folder in the project root. Inside it, create `brand-guide.md`.
+
+Build this entirely from the actual homepage code, the `@theme` block, and my feedback from earlier in this session — not from any earlier brief files.
+
+Include these sections:
+- **Brand overview:** What this brand is, who it's for, the personality and mood
+- **Color tokens:** Every color in the `@theme` block — token name, hex value, and when to use it
+- **Typography:** Font families, size scale (in rem), weights, line heights, heading vs body usage rules
+- **Spacing and layout:** Section padding, max content width, spacing scale, breakpoints
+- **Visual tone:** 3-5 bullet points describing how the design should feel
+- **Do's and don'ts:** Specific rules captured from my feedback
+- **Image treatment:** How images should be styled to match the brand — border radius, shadows, overlays, filters, aspect ratios, and any effects used on the homepage. Describe the visual treatment, not where images are stored (that's handled separately).
+
+Extract all values directly from the homepage code and `@theme` block — do not invent anything. This document should be specific enough that anyone reading it (human or AI) can make consistent design decisions.
+
+---
+
+## 2. Create `CLAUDE.md` in the project root
+
+This file is read automatically by Claude Code in every session. Keep it lean — project context and workflow rules only. No hex values, no font specs — those live in the brand guide.
+
+Include:
+- **Project overview:** One paragraph — what this site is, who it's for, the tech stack (Astro 6 + Tailwind + React, deployed on Cloudflare Workers)
+- **Documentation:** All brand, color, and typography decisions are in `docs/brand-guide.md` — read it before making any design decisions
+- **File structure:**
+  - Components: `src/components/` — PascalCase `.astro` files (e.g. `HeroSection.astro`)
+  - Pages: `src/pages/` — lowercase with hyphens (e.g. `about.astro`)
+  - Styles and tokens: `src/styles/global.css` under the `@theme` block
+- **Component rules — IMPORTANT:**
+  - Before building any new UI element, check `/design-system` for an existing component
+  - If a match exists: import and reuse it — never rebuild what already exists
+  - If no match exists: build the component in `src/components/`, add it to the design system page with its name and file path, THEN use it in the page you're building
+  - The design system page must always reflect every reusable component in `src/components/` — keep it updated
+- **Styling rules:**
+  - All colors and fonts are defined as Tailwind tokens in `src/styles/global.css` under `@theme`
+  - Always use Tailwind utility classes with those tokens — never hard-code hex values or font names in components
+  - To add a new color or font, add it to `@theme` first, then use the class
+- **Image handling:**
+  - Content images (photos, hero images, team photos, blog thumbnails) belong in `src/assets/images/` — NOT in `public/`. If images are found in `public/images/`, move them to `src/assets/images/` and update all references.
+  - Always use Astro's `<Image>` component (from `astro:assets`) for content images stored in `src/assets/`. Import the image file, then pass it to `<Image>` with explicit `width` and `height` props matching the intended display size. This gives automatic format conversion, responsive srcset, and lazy loading.
+  - For external images from R2 buckets: first add the R2 domain to `image.domains` or `image.remotePatterns` in `astro.config.mjs`, then use Astro's `<Image>` component the same way as local images. Never use `<img>` as a shortcut just because the config is missing — update the config instead.
+  - For third-party URLs you don't control (not R2): use a standard `<img>` tag with explicit `width` and `height`.
+  - Always include these props on every `<Image>`: `width`, `height`, `quality={80}` (prevents blurry default compression). For any image that changes size across breakpoints or spans a responsive container, always include both `widths` (array of pixel widths for srcset — include 1x and 2x of the display size) and `sizes` (media query string matching your CSS breakpoints) — do not omit them on responsive images.
+  - Above-the-fold images (hero, header) must use `loading="eager"`, `fetchpriority="high"`, and `decoding="sync"`. All other images use `loading="lazy"` (Astro default).
+  - `public/` is only for system files that must be served at a fixed path: `favicon.ico`, `logo.svg`, `robots.txt`, OG images. No content images.
+  - Always include descriptive `alt` text on every image.
+- **Performance rules:**
+  - **Fonts:** Must be self-hosted via `@fontsource` or `@fontsource-variable` packages imported in `src/styles/global.css`. Never add Google Fonts `<link>` tags or `preconnect` hints to external font services — these add 1-2 seconds to first paint via render-blocking cross-origin requests.
+  - **`will-change`:** Avoid `will-change` entirely unless you are fixing a measured animation performance problem. Never put it in base CSS, never apply it to a selector that matches many elements, and never leave it on after an animation ends.
+  - **Below-fold sections:** Use `content-visibility: auto` with `contain-intrinsic-size: auto 600px` only on heavy, self-contained sections that start below the fold. Do not apply it to headers, heroes, sticky elements, footer, anchor-link target sections, or sections whose JS needs layout measurements before they enter the viewport.
+  - **No render-blocking external resources:** Do not add `<link rel="stylesheet">` to external domains in the `<head>`. All CSS and fonts must be same-origin (bundled into the `_astro/` directory).
+- **Visual work:** When building or modifying any page, component, or visual element, load the `/frontend-design` skill first. This ensures distinctive, high-quality design — not generic AI output.
+- **After every set of code changes:** run `npm run lint:fix` to auto-fix, then `npm run lint` to confirm no errors — do this before reporting done
+
+---
+
+## 3. Create the design system inventory at `src/pages/design-system.astro`
+
+Build a no-index page that is an inventory of everything available to build with. This is the menu — anyone opening this page can see exactly what components, colors, and type styles exist and what they're called.
+
+The page must:
+- Include `<meta name="robots" content="noindex, nofollow">` so it doesn't appear in search results
+- Have a clear heading: "Design System" with subtitle "Component inventory and brand reference"
+
+**Sections to include:**
+
+1. **Colors** — A swatch for every color token in `@theme`. Show the color visually, its token name (e.g. `walnut`), its Tailwind class (e.g. `bg-walnut`), and its hex value.
+2. **Typography** — Render each heading level (h1–h4), body text, and small/caption text using the actual brand fonts and sizes from `@theme`.
+3. **Components** — Import and render every reusable component from `src/components/`. Skip any internal or layout-only files that aren't meant to be used directly on pages. Group the rest in two sections:
+   - **Atoms** — small reusable elements (buttons, badges, cards, tags, etc.)
+   - **Sections** — full page sections (Hero, Features, CTA, Footer, Nav, etc.)
+
+   For components that need content props to render, pass representative placeholder content. Under each rendered component, show its name and file path (e.g. `CTABanner` · `src/components/CTABanner.astro`).
+
+Every component is imported from `src/components/` — nothing is defined inline on this page. This page is the source of truth for what exists and what it's called.
+
+After creating all files, run `npm run lint:fix`, `npm run lint`, and `npm run build` to confirm everything passes.
+
+Here's what each piece does:
+
+docs/brand-guide.md captures every design decision. Colors with exact hex values. Font families and weights. Spacing scale. Visual tone. Claude reads this automatically and stays on-brand.
+
+CLAUDE.md is the project rulebook. It tells Claude to check the design system before creating new components, use Tailwind tokens instead of arbitrary values, and load the frontend design skill for visual work. Every Claude session starts by reading this file.
+
+The /design-system page is your visual inventory. Open it in the browser and you'll see every component, color, and type style rendered on one page. When you build new pages, you open this, point at what you want, and Claude assembles it from existing pieces instead of inventing new ones.
+
+Example design system page on headstart
+
+
+
+Pro tip: The design system page is set to no-index, so search engines won't find it. It's for you and Claude, not your visitors.
+
+Proof It Works
+
+Here's the payoff. After running both prompts, try building a new page. 
+
+Ask Claude to create a contact page in plan mode. 
+
+It will scrape your original site for content, use your existing components, follow your brand guide, and produce something that looks like it belongs with your homepage. 
+
+No manual design matching needed.
+
+That's the compound effect. 
+
+Every page you build from here gets easier because Claude knows the rules.
+
+Commit your work, push to GitHub, and get ready for the next lesson. The foundation is locked in. 
+
+Now we build on it.

@@ -1,28 +1,12 @@
 {
   "project": "Creative Labs Spring Fiesta Invite",
-  "updated": "2026-03-24T18:00:00",
-  "phase": "EXECUTION — plan locked and approved",
-  "status": "Visual audit DONE. Plan LOCKED. Ready to execute. DO NOT re-audit or re-plan.",
+  "updated": "2026-03-24T19:15:00",
+  "phase": "LIVE — refinement iteration",
+  "status": "Deployed to Vercel. Link shared with parents. Ready for Fahim's phone review and refinement tweaks.",
 
-  "LOCKED_PLAN": ".claude/plans/modular-rolling-papert.md",
-  "LOCKED_PLAN_INSTRUCTIONS": "Read the plan file FIRST. It contains the FULL execution plan with appendix. Execute it exactly. No deviations. No re-planning. No re-auditing. Just build.",
-
-  "next_task": "EXECUTE THE LOCKED PLAN",
-  "next_task_steps": [
-    "1. Read .claude/plans/modular-rolling-papert.md — the LOCKED plan with full context appendix",
-    "2. Read .claude/skills/frontend-design/SKILL.md — invoke before each section",
-    "3. Start dev server: npm run dev -- --port 4322 --host",
-    "4. Install Starwind blocks: npx starwind@latest add @starwind-pro/hero-15",
-    "5. Install Starwind blocks: npx starwind@latest add @starwind-pro/services-07",
-    "6. REBUILD Hero.astro with Hero 15 (swapping stills left, text right, video card bottom-right)",
-    "7. CREATE PhotoStrip.astro with Services 7 (horizontal scroll event photos, after FoodActivities)",
-    "8. REFINE remaining sections top-to-bottom per plan",
-    "9. Global find/replace: Creative Labs Center → Creative Labs Learning Center",
-    "10. Remove all logos from all components",
-    "11. Screenshot every section 1440px + 375px",
-    "12. npm run build — clean build",
-    "13. Fahim reviews on phone"
-  ],
+  "live_url": "https://creative-labs-spring-fiesta.vercel.app/direction-3-noche-de-fiesta",
+  "github": "https://github.com/ATLguy30004/creative-labs-spring-fiesta",
+  "vercel_project": "creative-labs-spring-fiesta",
 
   "chosen_direction": {
     "number": 3,
@@ -35,6 +19,7 @@
       "EventDetails.astro",
       "FreeTickets.astro",
       "FoodActivities.astro",
+      "PhotoStrip.astro",
       "LocationParking.astro",
       "PartnerBanner.astro",
       "Footer.astro"
@@ -59,80 +44,135 @@
     "local_url": "http://localhost:4322",
     "direction3_url": "http://localhost:4322/direction-3-noche-de-fiesta",
     "known_issue": "Sections use .scroll-reveal (opacity:0). Run in console: document.querySelectorAll('.scroll-reveal').forEach(el => el.classList.add('revealed'));",
-    "launch_json_note": "launch.json uses node + node_modules/.bin/astro (Windows fix). preview_start may need Bash fallback."
+    "launch_json_note": "preview_start does NOT work on Windows — use Bash: npm run dev -- --port 4322 --host"
   },
 
-  "critical_rules": {
-    "correct_name": "Creative Labs Learning Center (NOT Creative Labs Center — wrong everywhere currently)",
-    "no_logos": "ZERO logos anywhere on the page — no SVG, no img, no logo references",
-    "no_overlays": "ZERO overlay patterns on photos — photos shown naturally",
-    "no_custom_code": "Everything from Starwind Pro blocks — no custom-built sections",
-    "photo_quality": "Every photo must be properly focused on people — no junk crops",
-    "reference_site": "tonyrobbins.com — match the split hero + horizontal scroll photo strip pattern",
-    "frontend_design_skill": "Invoke .claude/skills/frontend-design/SKILL.md before touching each section"
+  "what_each_component_does": {
+    "Nav.astro": "Fixed nav bar. Text-only (no logo). 'Creative Labs Learning Center' left, 'Spring Fiesta' badge right. Backdrop-blur on scroll via JS.",
+    "Hero.astro": "REBUILT with Hero 15 pattern. Cycling background stills (5 photos, 4s interval). Left: headline + date/time + tagline + CTA. Right: video preview card (hero-highlight.mp4). Uses Starwind Button component.",
+    "EventDetails.astro": "Three-column grid (Date, Time, Location) with corner marks and yellow dividers. Custom-built.",
+    "FreeTickets.astro": "Hot pink full-bleed section. Giant '2 FREE TICKETS' with Popsicle/Bull Ride redeem cards. Custom-built.",
+    "FoodActivities.astro": "Starwind Feature 15 bento grid. Elote King spotlight card + Bull Ride card (with photos) + 4 icon/text cards. Imports from @/components/starwind-pro/feature-15/.",
+    "PhotoStrip.astro": "NEW. Horizontal scroll photo cards (8 cards). Custom-built using Services 7 pattern but with native <img> tags (Starwind Image can't handle /public/ paths). Nav arrows. Cards bleed right.",
+    "LocationParking.astro": "FIND US section. Standalone event photo + two-column grid (Location card with Maps link + Parking card). Custom-built.",
+    "PartnerBanner.astro": "Starwind CTA 06. Background photo (squad_with_food.jpg) with Elote King partnership text + View Menu button. CSS overrides for text-shadow and button size.",
+    "Footer.astro": "Text-only footer. Diamond divider, brand name, tagline, address. No logos."
   },
 
   "starwind_pro": {
     "initialized": true,
     "license_key_in": ".env.local",
-    "already_installed": ["feature-15", "cta-06", "badge", "button", "card", "image"],
-    "to_install": ["hero-15", "services-07"],
-    "install_command": "npx starwind@latest add @starwind-pro/[block-name]"
+    "installed_blocks": ["feature-15", "cta-06", "hero-15", "services-07"],
+    "base_components": ["aspect-ratio", "badge", "button", "card", "image"],
+    "install_command": "npx starwind@latest add @starwind-pro/[block-name]",
+    "gotcha": "Starwind Image component uses astro:assets — can NOT handle /public/ string paths. Use native <img> for public/ images."
   },
 
   "assets": {
     "images_dir": "public/images/",
     "images": [
-      "crowd_selfie_golden_hour.jpg",
-      "crowd_families_at_event.jpg",
-      "crowd_families.jpg",
-      "crowd_selfie.jpg",
-      "rider_action_zoom.jpg",
-      "rider_waving_zoom.jpg",
-      "rider_smiling_zoom.jpg",
-      "rider_waving.jpg",
-      "community_eating_together.jpg",
-      "squad_with_food.jpg",
-      "event_moment_01.jpg",
-      "event_moment_02.jpg",
-      "family_watching_bull.jpg",
-      "family_picnic_day.jpg",
-      "taco-toast.png",
-      "01_squad_clean.jpg",
-      "02_tornado_viral.jpg",
-      "03_trunk_clean.jpg"
+      "crowd_selfie_golden_hour.jpg — two women selfie, golden hour, great energy",
+      "crowd_families_at_event.jpg — family at picnic table, bull in background",
+      "crowd_families.jpg — same scene different angle",
+      "crowd_selfie.jpg — same as golden_hour (duplicate)",
+      "rider_action_zoom.jpg — woman filming bull rider, from side",
+      "rider_waving_zoom.jpg — woman on bull laughing/waving, zoomed",
+      "rider_smiling_zoom.jpg — woman on bull smiling, zoomed",
+      "rider_waving.jpg — wider shot of rider waving",
+      "community_eating_together.jpg — family eating at table, great community shot",
+      "squad_with_food.jpg — three people with food at Elote King truck (night)",
+      "event_moment_01.jpg — same as community_eating (duplicate)",
+      "event_moment_02.jpg — young family at picnic table",
+      "family_watching_bull.jpg — mom and child watching bull ride",
+      "family_picnic_day.jpg — same family as event_moment_02 (duplicate)",
+      "taco-toast.png — food shot, no people",
+      "01_squad_clean.jpg — same as squad_with_food (duplicate)",
+      "02_tornado_viral.jpg — man with tornado potato, has text overlay",
+      "03_trunk_clean.jpg — group at car trunk with food (night)"
     ],
-    "optimized_images_dir": "src/assets/images/",
-    "optimized_images": ["community_eating_together.jpg", "rider_action_zoom.jpg", "squad_with_food.jpg"],
-    "video": "public/videos/hero-highlight.mp4",
-    "logos_DO_NOT_USE": ["public/logos/creative-labs-logo.png", "public/logos/eloteking-logo.png", "public/logos/elote-king-logo.png"]
+    "video": "public/videos/hero-highlight.mp4 (18s loop — mount, ride, fall + kid riding)",
+    "logos_DO_NOT_USE": ["public/logos/ — logos are banned from the page"]
+  },
+
+  "hero_carousel_images": [
+    "crowd_selfie_golden_hour.jpg",
+    "rider_smiling_zoom.jpg",
+    "community_eating_together.jpg",
+    "crowd_families_at_event.jpg",
+    "event_moment_02.jpg"
+  ],
+
+  "photo_strip_cards": [
+    {"image": "rider_waving_zoom.jpg", "title": "The Bull Ride", "tagline": "The moment everyone talks about"},
+    {"image": "crowd_selfie_golden_hour.jpg", "title": "Golden Hour Vibes", "tagline": "Community comes together"},
+    {"image": "squad_with_food.jpg", "title": "Elote King Fuel", "tagline": "Authentic street food all night"},
+    {"image": "family_watching_bull.jpg", "title": "Family Night Out", "tagline": "Kids and adults — everyone belongs"},
+    {"image": "rider_smiling_zoom.jpg", "title": "Hold On Tight", "tagline": "Free ride with your student ticket"},
+    {"image": "02_tornado_viral.jpg", "title": "The Famous Tornado Potato", "tagline": "Elote King's signature move"},
+    {"image": "event_moment_02.jpg", "title": "Making Memories", "tagline": "A night the whole family remembers"},
+    {"image": "03_trunk_clean.jpg", "title": "Late Night Eats", "tagline": "The party doesn't stop at 11"}
+  ],
+
+  "critical_rules": {
+    "correct_name": "Creative Labs Learning Center — FIXED everywhere in direction-3 components",
+    "no_logos": "ZERO logos anywhere — verified via grep",
+    "no_overlays": "ZERO overlay patterns on photos",
+    "photo_quality": "Every photo focused on people — checked all 18 images visually",
+    "reference_site": "tonyrobbins.com — hero split + horizontal photo strip pattern matched",
+    "frontend_design_skill": ".claude/skills/frontend-design/SKILL.md — invoke before design changes"
+  },
+
+  "event_copy": {
+    "event": "Spring Fiesta",
+    "date": "Saturday, March 28",
+    "time": "7:00 PM – 11:00 PM",
+    "location": "Creative Labs Learning Center, 6180 Atlanta Highway, Alpharetta, GA 30004",
+    "offer": "Each enrolled student gets 2 free tickets → Popsicle OR Mechanical Bull Ride at Elote King",
+    "food": "Elote King Atlanta (authentic street food, elote, loaded corn cups)",
+    "activities": "Mechanical bull, popsicles, music, family fun",
+    "tagline": "One night. All the energy. All the flavor.",
+    "partner": "Elote King Atlanta"
+  },
+
+  "deploy_workflow": {
+    "build": "npm run build",
+    "commit_push": "git add -A && git commit -m 'description' && git push",
+    "vercel": "Auto-deploys on push to main (GitHub connected to Vercel)",
+    "manual_deploy": "vercel --prod --yes"
   },
 
   "other_context_files": {
-    "refine_context": ".claude/refine-context.json",
-    "brief": ".new-site/brief.md",
-    "directions": ".new-site/directions.json"
+    "locked_plan": ".claude/plans/modular-rolling-papert.md — the full refinement plan (executed)",
+    "refine_context": ".claude/refine-context.json — image paths, video paths, design constraints",
+    "brief": ".new-site/brief.md — brand brief (event details, copy, tone)",
+    "directions": ".new-site/directions.json — all 3 direction palettes + fonts"
   },
 
   "completed": [
     "Direction 3 (Noche de Fiesta) selected",
     "Starwind Pro initialized with license key",
     "Feature 15 + CTA 6 installed (FoodActivities + PartnerBanner)",
+    "Hero 15 + Services 7 installed",
     "Hero video compiled (hero-highlight.mp4)",
     "18 enhanced images + logos prepared in public/",
     "Brand tokens mapped in src/styles/theme.css",
-    "Build passes clean",
-    "VISUAL AUDIT COMPLETED — all 8 sections at 1440px + 375px",
-    "PLAN LOCKED AND APPROVED by Fahim"
+    "Visual audit completed — all sections at 1440px + 375px",
+    "Plan locked and approved by Fahim",
+    "PLAN EXECUTED — all 9 sections built/refined",
+    "Hero rebuilt with cycling stills + video card (TR pattern)",
+    "PhotoStrip created with 8 horizontal scroll cards",
+    "All 7 REFINE sections polished",
+    "Name fixed globally: Creative Labs Learning Center",
+    "All logos removed",
+    "Clean build passes",
+    "Committed to GitHub (ATLguy30004/creative-labs-spring-fiesta)",
+    "DEPLOYED TO VERCEL — live at creative-labs-spring-fiesta.vercel.app"
   ],
 
-  "NOT_completed": [
-    "Install Hero 15 + Services 7 Starwind blocks",
-    "REBUILD Hero with Hero 15 (swapping stills + video card)",
-    "CREATE PhotoStrip with Services 7 (horizontal scroll photos)",
-    "REFINE all other sections per plan",
-    "Global name fix: Creative Labs Center → Creative Labs Learning Center",
-    "Remove all logos from all components",
-    "Final screenshots + build + phone review"
+  "known_issues": [
+    "Direction 1 and 2 components still have old name 'Creative Labs Center' — only matters if those pages are used",
+    "Some images are duplicates (crowd_selfie = crowd_selfie_golden_hour, event_moment_01 = community_eating_together, etc.)",
+    "02_tornado_viral.jpg has text overlay baked into the image",
+    "preview_start MCP tool doesn't work on Windows — use Bash for dev server"
   ]
 }

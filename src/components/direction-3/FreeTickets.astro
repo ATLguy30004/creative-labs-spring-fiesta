@@ -1,25 +1,23 @@
 ---
 /**
- * FreeTickets — VIP access section. Hot pink accent. Electric energy.
- * This is the KEY section — enrolled students get 2 FREE tickets.
- * Full-bleed hot pink moment against the dark background.
+ * FreeTickets — REBUILT. Dark bg with golden accents.
+ * Photo-backed redeem cards. Bold typography. Visible disclaimer.
  */
 ---
 
-<section class="free-tickets scroll-reveal" aria-label="Your free tickets">
+<section class="free-tickets scroll-reveal" id="free-tickets" aria-label="Your free tickets">
   <!-- Geometric decorations -->
   <div class="tickets-geo" aria-hidden="true">
-    <span class="geo-star-ticket geo-star-ticket--1"></span>
-    <span class="geo-star-ticket geo-star-ticket--2"></span>
-    <span class="geo-diamond-ticket geo-diamond-ticket--1"></span>
-    <span class="geo-diamond-ticket geo-diamond-ticket--2"></span>
+    <span class="geo-diamond geo-diamond--1"></span>
+    <span class="geo-diamond geo-diamond--2"></span>
+    <span class="geo-diamond geo-diamond--3"></span>
   </div>
 
   <div class="tickets-inner">
     <div class="vip-badge">
-      <span class="diamond-motif-accent" aria-hidden="true"></span>
+      <span class="diamond-dot" aria-hidden="true"></span>
       Enrolled Student Exclusive
-      <span class="diamond-motif-accent" aria-hidden="true"></span>
+      <span class="diamond-dot" aria-hidden="true"></span>
     </div>
 
     <h2 class="tickets-title">YOUR FREE<br>TICKETS</h2>
@@ -28,41 +26,42 @@
 
     <div class="ticket-count-block">
       <span class="ticket-number">2</span>
-      <span class="ticket-word">FREE TICKETS</span>
+      <span class="ticket-word">FREE<br>TICKETS</span>
     </div>
+
+    <p class="tickets-choose">Choose your reward at the Elote King station:</p>
 
     <div class="redeem-options">
       <div class="redeem-card">
-        <div class="redeem-icon" aria-hidden="true">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/>
-            <path d="M12 6v6l4 2"/>
-            <path d="M8 18l-2 4M16 18l2 4"/>
-          </svg>
+        <div class="redeem-photo">
+          <img src="/images/popsicle_pink.png" alt="Pink popsicle treat from Elote King" loading="lazy" />
+          <div class="redeem-photo-overlay"></div>
         </div>
-        <span class="redeem-label">Option A</span>
-        <span class="redeem-value">Popsicle</span>
-        <span class="redeem-detail">from Elote King</span>
+        <div class="redeem-content">
+          <span class="redeem-value">Popsicle</span>
+          <span class="redeem-detail">from Elote King</span>
+        </div>
       </div>
 
       <div class="redeem-or">
-        <span>OR</span>
+        <span class="or-line"></span>
+        <span class="or-text">OR</span>
+        <span class="or-line"></span>
       </div>
 
       <div class="redeem-card">
-        <div class="redeem-icon" aria-hidden="true">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22c-4.97 0-9-2.24-9-5v-2c0-2.76 4.03-5 9-5s9 2.24 9 5v2c0 2.76-4.03 5-9 5z"/>
-            <path d="M12 10c-2.76 0-5-1.57-5-3.5S9.24 3 12 3s5 1.57 5 3.5S14.76 10 12 10z"/>
-          </svg>
+        <div class="redeem-photo">
+          <img src="/images/rider_waving.jpg" alt="Rider waving on the mechanical bull at the Spring Fiesta" loading="lazy" />
+          <div class="redeem-photo-overlay"></div>
         </div>
-        <span class="redeem-label">Option B</span>
-        <span class="redeem-value">Mechanical Bull Ride</span>
-        <span class="redeem-detail">at Elote King</span>
+        <div class="redeem-content">
+          <span class="redeem-value">Mechanical Bull Ride</span>
+          <span class="redeem-detail">at Elote King</span>
+        </div>
       </div>
     </div>
 
-    <p class="tickets-fine">Tickets redeemable at the Elote King station during the event.</p>
+    <p class="tickets-disclaimer">Tickets redeemable at the Elote King station during the event. Each enrolled student receives 2 tickets — one for each reward, or two of the same. Present your student confirmation at check-in.</p>
   </div>
 </section>
 
@@ -72,14 +71,16 @@
   .free-tickets {
     position: relative;
     padding: 6rem 1.5rem;
-    background: var(--color-brand-accent);
+    background: var(--color-brand-bg);
     overflow: hidden;
+    border-top: 1px solid rgba(255, 208, 36, 0.15);
+    border-bottom: 1px solid rgba(255, 208, 36, 0.15);
   }
 
   .tickets-inner {
     position: relative;
     z-index: 2;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
   }
@@ -91,19 +92,19 @@
     gap: 0.8rem;
     font-family: var(--font-body);
     font-weight: 700;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--color-brand-primary);
     padding: 0.5rem 1.4rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 208, 36, 0.3);
     margin-bottom: 2rem;
   }
 
-  .diamond-motif-accent {
+  .diamond-dot {
     width: 6px;
     height: 6px;
-    background: white;
+    background: var(--color-brand-primary);
     transform: rotate(45deg);
     display: inline-block;
   }
@@ -112,18 +113,18 @@
   .tickets-title {
     font-family: var(--font-heading);
     font-weight: 900;
-    font-size: clamp(3rem, 10vw, 6rem);
+    font-size: clamp(3.5rem, 12vw, 7rem);
     line-height: 0.9;
     letter-spacing: -0.04em;
     color: white;
     margin: 0 0 1.5rem;
-    text-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+    text-shadow: 0 0 60px rgba(255, 208, 36, 0.15);
   }
 
   .tickets-hook {
     font-family: var(--font-body);
-    font-size: 1.15rem;
-    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.75);
     margin-bottom: 1.5rem;
     font-weight: 500;
   }
@@ -134,109 +135,143 @@
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
   }
 
   .ticket-number {
     font-family: var(--font-heading);
     font-weight: 900;
-    font-size: clamp(5rem, 15vw, 9rem);
-    color: white;
+    font-size: clamp(6rem, 18vw, 10rem);
+    color: var(--color-brand-primary);
     line-height: 1;
-    text-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 80px rgba(255, 208, 36, 0.3), 0 0 160px rgba(255, 208, 36, 0.1);
     animation: number-glow 3s ease-in-out infinite alternate;
   }
 
   @keyframes number-glow {
-    0% { text-shadow: 0 0 30px rgba(255, 255, 255, 0.2); }
-    100% { text-shadow: 0 0 60px rgba(255, 255, 255, 0.4), 0 0 100px rgba(255, 255, 255, 0.15); }
+    0% { text-shadow: 0 0 40px rgba(255, 208, 36, 0.2); }
+    100% { text-shadow: 0 0 80px rgba(255, 208, 36, 0.4), 0 0 140px rgba(255, 208, 36, 0.15); }
   }
 
   .ticket-word {
     font-family: var(--font-heading);
     font-weight: 900;
-    font-size: clamp(1.8rem, 5vw, 3rem);
-    color: var(--color-brand-primary);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: white;
     letter-spacing: 0.05em;
     text-align: left;
-    line-height: 1.1;
-    text-shadow: 0 0 20px rgba(255, 208, 36, 0.4);
+    line-height: 1.05;
+  }
+
+  .tickets-choose {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 2rem;
+    font-weight: 500;
   }
 
   /* ── Redeem options ── */
   .redeem-options {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     gap: 1.5rem;
     margin-bottom: 2.5rem;
   }
 
   .redeem-card {
-    background: rgba(0, 0, 0, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 2rem 2rem;
-    text-align: center;
+    border: 1px solid rgba(255, 208, 36, 0.2);
+    border-radius: 16px;
+    overflow: hidden;
     flex: 1;
-    max-width: 260px;
+    max-width: 340px;
     transition: all 0.3s ease;
     position: relative;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    background: var(--color-brand-surface);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   }
 
   .redeem-card:hover {
-    border-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
-    transform: translateY(-4px);
+    border-color: rgba(255, 208, 36, 0.5);
+    box-shadow: 0 12px 48px rgba(255, 208, 36, 0.1), 0 8px 32px rgba(0, 0, 0, 0.4);
+    transform: translateY(-6px);
   }
 
-  .redeem-icon {
-    color: var(--color-brand-primary);
-    margin-bottom: 1rem;
+  .redeem-photo {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
   }
 
-  .redeem-label {
-    display: block;
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.65);
-    margin-bottom: 0.5rem;
+  .redeem-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .redeem-photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, var(--color-brand-surface) 100%);
+  }
+
+  .redeem-content {
+    padding: 1.25rem 1.5rem 1.75rem;
+    text-align: center;
   }
 
   .redeem-value {
     display: block;
     font-family: var(--font-heading);
     font-weight: 900;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     color: white;
     letter-spacing: -0.01em;
+    margin-bottom: 0.3rem;
   }
 
   .redeem-detail {
     display: block;
     font-family: var(--font-body);
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.6);
-    margin-top: 0.4rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.55);
   }
 
   .redeem-or {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  .or-text {
     font-family: var(--font-heading);
     font-weight: 900;
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.4);
-    letter-spacing: 0.1em;
-    flex-shrink: 0;
+    color: var(--color-brand-primary);
+    letter-spacing: 0.15em;
   }
 
-  .tickets-fine {
+  .or-line {
+    width: 1px;
+    height: 32px;
+    background: linear-gradient(180deg, transparent, rgba(255, 208, 36, 0.3), transparent);
+  }
+
+  /* ── Disclaimer — visible, not hidden ── */
+  .tickets-disclaimer {
     font-family: var(--font-body);
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
-    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 640px;
+    margin: 0 auto;
   }
 
   /* ── Floating geo ── */
@@ -248,32 +283,19 @@
     overflow: hidden;
   }
 
-  .geo-star-ticket {
+  .geo-diamond {
     position: absolute;
-    background: rgba(255, 255, 255, 0.15);
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    animation: float-star-ticket 8s ease-in-out infinite;
-  }
-  .geo-star-ticket--1 { width: 24px; height: 24px; top: 10%; left: 5%; }
-  .geo-star-ticket--2 { width: 18px; height: 18px; bottom: 15%; right: 8%; animation-delay: 3s; }
-
-  .geo-diamond-ticket {
-    position: absolute;
-    background: rgba(255, 208, 36, 0.2);
+    background: rgba(255, 208, 36, 0.08);
     transform: rotate(45deg);
     animation: float-diamond-ticket 10s ease-in-out infinite;
   }
-  .geo-diamond-ticket--1 { width: 14px; height: 14px; top: 25%; right: 12%; animation-delay: 1s; }
-  .geo-diamond-ticket--2 { width: 10px; height: 10px; bottom: 30%; left: 10%; animation-delay: 5s; }
-
-  @keyframes float-star-ticket {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(20deg); }
-  }
+  .geo-diamond--1 { width: 120px; height: 120px; top: -40px; right: -30px; animation-delay: 0s; }
+  .geo-diamond--2 { width: 80px; height: 80px; bottom: -20px; left: -20px; animation-delay: 4s; }
+  .geo-diamond--3 { width: 50px; height: 50px; top: 40%; left: 8%; animation-delay: 7s; }
 
   @keyframes float-diamond-ticket {
     0%, 100% { transform: rotate(45deg) translateY(0); }
-    50% { transform: rotate(45deg) translateY(-10px); }
+    50% { transform: rotate(45deg) translateY(-12px); }
   }
 
   /* ── Scroll reveal ── */
@@ -290,12 +312,12 @@
   /* ── Mobile ── */
   @media (max-width: 640px) {
     .free-tickets {
-      padding: 5rem 1rem;
+      padding: 4rem 1rem;
     }
 
     .ticket-count-block {
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0.25rem;
     }
 
     .ticket-word {
@@ -304,7 +326,8 @@
 
     .redeem-options {
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.25rem;
+      align-items: center;
     }
 
     .redeem-card {
@@ -313,7 +336,17 @@
     }
 
     .redeem-or {
-      margin: 0;
+      flex-direction: row;
+      gap: 1rem;
+    }
+
+    .or-line {
+      width: 40px;
+      height: 1px;
+    }
+
+    .redeem-photo {
+      height: 180px;
     }
   }
 </style>

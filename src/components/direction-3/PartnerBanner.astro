@@ -7,6 +7,9 @@ import Cta6 from "@/components/starwind-pro/cta-06/Cta6.astro";
 ---
 
 <div class="partner-wrap scroll-reveal">
+  <div class="partner-logo-row">
+    <img src="/logos/eloteking-logo.png" alt="Elote King Atlanta" class="partner-logo" />
+  </div>
   <Cta6
     title="In Collaboration With Elote King Atlanta"
     description="Bringing the heat, the flavor, and the fiesta energy to Creative Labs Spring Fiesta."
@@ -20,6 +23,18 @@ import Cta6 from "@/components/starwind-pro/cta-06/Cta6.astro";
 
   .partner-wrap {
     background: var(--color-brand-bg);
+  }
+
+  .partner-logo-row {
+    text-align: center;
+    padding: 2rem 1rem 0;
+  }
+
+  .partner-logo {
+    height: 64px;
+    width: auto;
+    display: inline-block;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
   }
 
   /* Text legibility via text-shadow — no overlay pattern */

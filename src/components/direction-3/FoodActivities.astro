@@ -4,10 +4,12 @@
  * Elote King gets the spotlight cell. Bull + Popsicles are supporting cards.
  */
 import Feature15 from "@/components/starwind-pro/feature-15/Feature15.astro";
-import IconFlame from "@tabler/icons/outline/flame.svg";
-import IconIceCream from "@tabler/icons/outline/ice-cream.svg";
+import IconFlame from "@tabler/icons/filled/flame.svg";
+import IconStar from "@tabler/icons/filled/star.svg";
+import IconConfetti from "@tabler/icons/filled/confetti.svg";
+import IconHeart from "@tabler/icons/filled/heart.svg";
 import communityEating from "@/assets/images/community_eating_together.jpg";
-import riderAction from "@/assets/images/rider_action_zoom.jpg";
+import riderAction from "@/assets/images/rider_waving.jpg";
 ---
 
 <div class="food-activities-wrap scroll-reveal">
@@ -34,7 +36,7 @@ import riderAction from "@/assets/images/rider_action_zoom.jpg";
       },
       {
         type: "small",
-        icon: IconIceCream,
+        icon: IconStar,
         title: "Popsicles",
         description: "Cool down with a Popsicle from Elote King. Free with your student ticket.",
       },
@@ -50,13 +52,13 @@ import riderAction from "@/assets/images/rider_action_zoom.jpg";
       },
       {
         type: "small",
-        icon: IconFlame,
+        icon: IconConfetti,
         title: "Live Energy",
         description: "Music, lights, and community vibes from 7 PM to 11 PM.",
       },
       {
         type: "small",
-        icon: IconIceCream,
+        icon: IconHeart,
         title: "Family Fun",
         description: "A night for the whole family. Kids play, parents eat, everyone celebrates.",
       },
@@ -74,6 +76,23 @@ import riderAction from "@/assets/images/rider_action_zoom.jpg";
   /* Subtle gradient on text-only bento cards (small type) */
   .food-activities-wrap :global(.spotlight:not(:has(img))) {
     background: linear-gradient(135deg, var(--color-brand-surface) 0%, rgba(255, 208, 36, 0.04) 100%);
+  }
+
+  /* Bigger, bolder icons — override Starwind's size-5 (20px) → 28px with larger bg */
+  .food-activities-wrap :global(.rounded-lg.p-2\.5) {
+    padding: 0.75rem;
+    border-radius: 12px;
+    background: rgba(255, 208, 36, 0.15);
+  }
+
+  .food-activities-wrap :global(.rounded-lg.p-2\.5 svg) {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Position bull ride image to show rider from top */
+  .food-activities-wrap :global(img.object-cover) {
+    object-position: top !important;
   }
 
   /* Scroll reveal */

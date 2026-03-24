@@ -31,3 +31,5 @@ Content/
 # Python scripts and prototypes
 enhance_media.py
 prototypes/
+
+.vercel

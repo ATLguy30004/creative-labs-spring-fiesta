@@ -8,7 +8,9 @@
 <nav class="noche-nav" id="noche-nav">
   <div class="nav-inner">
     <div class="nav-brand">
-      <span class="nav-brand-text">Creative Labs Learning Center</span>
+      <div class="nav-logo-pill">
+        <img src="/logos/creative-labs-logo.png" alt="Creative Labs Learning Center" class="nav-logo" />
+      </div>
     </div>
     <div class="nav-event-tag">
       <span class="diamond-motif diamond-motif--sm" aria-hidden="true"></span>
@@ -57,12 +59,18 @@
     align-items: center;
   }
 
-  .nav-brand-text {
-    font-family: var(--font-heading);
-    font-weight: 900;
-    font-size: 1.05rem;
-    color: var(--color-brand-text);
-    letter-spacing: -0.02em;
+  .nav-logo-pill {
+    background: white;
+    border-radius: 8px;
+    padding: 4px 12px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-logo {
+    height: 32px;
+    width: auto;
+    display: block;
   }
 
   .nav-event-tag {
@@ -106,8 +114,8 @@
     .noche-nav {
       padding: 0.7rem 0.75rem;
     }
-    .nav-brand-text {
-      font-size: 0.8rem;
+    .nav-logo {
+      height: 24px;
     }
     .nav-event-tag {
       font-size: 0.6rem;
